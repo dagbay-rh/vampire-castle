@@ -1,0 +1,72 @@
+[gd_scene load_steps=14 format=3 uid="uid://d1cmlcrv5klwe"]
+
+[ext_resource type="FontFile" uid="uid://2gd4rfqcrk85" path="res://ui/fonts/Vampires.otf" id="1_6t488"]
+
+[sub_resource type="Theme" id="Theme_ig0ah"]
+default_font = ExtResource("1_6t488")
+default_font_size = 75
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_edi32"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hsb7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_btnys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yn4rb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q6d1w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ti083"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kp41x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybv1k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e505i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipi64"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jomo5"]
+
+[node name="StartMenu" type="VBoxContainer"]
+offset_right = 287.0
+offset_bottom = 93.0
+theme = SubResource("Theme_ig0ah")
+theme_override_constants/separation = 0
+
+[node name="NewGame" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.945098, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_edi32")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4hsb7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_btnys")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yn4rb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q6d1w")
+text = "New Game"
+alignment = 0
+
+[node name="LoadGame" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ti083")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kp41x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ybv1k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yn4rb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q6d1w")
+text = "Load Game"
+alignment = 0
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.870588, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e505i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ipi64")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jomo5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yn4rb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q6d1w")
+text = "Quit"
+alignment = 0

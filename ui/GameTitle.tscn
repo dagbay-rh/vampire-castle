@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0b64vltes7ia"]
+
+[ext_resource type="FontFile" uid="uid://2gd4rfqcrk85" path="res://ui/fonts/Vampires.otf" id="1_6nlue"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1hhx7"]
+
+[node name="GameTitle" type="RichTextLabel"]
+offset_left = 565.0
+offset_top = 1.0
+offset_right = 1146.0
+offset_bottom = 419.0
+theme_override_colors/default_color = Color(0.85098, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_6nlue")
+theme_override_font_sizes/normal_font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1hhx7")
+text = "Belmont's
+  Night Out"
+fit_content = true

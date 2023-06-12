@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0ds6ojwprtqh"]
+
+[ext_resource type="Script" path="res://ui/scripts/TitleScreenBackground.gd" id="1_wpnnx"]
+[ext_resource type="Texture2D" uid="uid://dxpu5e50byjxn" path="res://art/backgrounds/NightSky.png" id="2_qkvg2"]
+[ext_resource type="Texture2D" uid="uid://drompq51ufdw3" path="res://art/backgrounds/City.png" id="3_pr60r"]
+[ext_resource type="PackedScene" uid="uid://d0b64vltes7ia" path="res://ui/GameTitle.tscn" id="4_vijw2"]
+[ext_resource type="PackedScene" uid="uid://d1cmlcrv5klwe" path="res://ui/StartMenu.tscn" id="5_sdbgt"]
+
+[node name="TitleScreenBackground" type="ParallaxBackground"]
+script = ExtResource("1_wpnnx")
+
+[node name="NightSky" type="Sprite2D" parent="."]
+position = Vector2(577, 325)
+scale = Vector2(1.4974, 1.55529)
+texture = ExtResource("2_qkvg2")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1150, 0)
+
+[node name="City" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(578, 455.875)
+scale = Vector2(3.59375, 2.91412)
+texture = ExtResource("3_pr60r")
+
+[node name="GameTitle" parent="." instance=ExtResource("4_vijw2")]
+offset_left = 566.0
+offset_top = 3.0
+offset_right = 1238.0
+offset_bottom = 421.0
+
+[node name="StartMenu" parent="." instance=ExtResource("5_sdbgt")]
+offset_left = 210.0
+offset_top = 320.0
+offset_right = 540.0
+offset_bottom = 557.0

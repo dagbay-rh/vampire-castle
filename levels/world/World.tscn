@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://blwx1tabkh66b"]
+
+[ext_resource type="Script" path="res://levels/world/world.gd" id="1_kvurr"]
+[ext_resource type="PackedScene" uid="uid://cdtgjds8pl5s" path="res://monsters/generic/Generic.tscn" id="2_pytok"]
+[ext_resource type="PackedScene" uid="uid://s7hdtgo3hs3c" path="res://characters/vamp/Vampire.tscn" id="3_mb0yl"]
+
+[sub_resource type="Gradient" id="Gradient_jdhxu"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y5yo2"]
+gradient = SubResource("Gradient_jdhxu")
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_kvurr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -135.0
+offset_top = -82.0
+offset_right = 114.0
+offset_bottom = 69.0
+texture = SubResource("GradientTexture2D_y5yo2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-7, -5)
+zoom = Vector2(5, 5)
+
+[node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-8, -30)
+
+[node name="Generic" parent="Node2D" instance=ExtResource("2_pytok")]
+position = Vector2(71, 33)
+
+[node name="Vampire" parent="Node2D" instance=ExtResource("3_mb0yl")]
+position = Vector2(-32, 17)

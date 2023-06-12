@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://s7hdtgo3hs3c"]
+
+[ext_resource type="Texture2D" uid="uid://c14xo3f6rxkte" path="res://characters/vamp/player.png" id="1_p1ohc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvyym"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fwpl"]
+radius = 3.0
+
+[node name="Vampire" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p1ohc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -15)
+shape = SubResource("CapsuleShape2D_lvyym")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, -15)
+shape = SubResource("CircleShape2D_2fwpl")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(8, -16)
+shape = SubResource("CircleShape2D_2fwpl")
+
+[node name="Trigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(1, -18)
+shape = SubResource("CircleShape2D_2fwpl")

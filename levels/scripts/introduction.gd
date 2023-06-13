@@ -11,7 +11,7 @@ func _ready():
 func change_to_main_scene():
 	SceneSwitch.switch_scene("res://levels/world/World.tscn")
 	
-func startTimer(anim_name):
+func startTimer(_anim_name):
 	$Timer.start(wait_time)
 	$Timer.connect("timeout", change_to_main_scene)
 	

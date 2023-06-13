@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1cmlcrv5klwe"]
+[gd_scene load_steps=15 format=3 uid="uid://d1cmlcrv5klwe"]
 
 [ext_resource type="FontFile" uid="uid://2gd4rfqcrk85" path="res://ui/fonts/Vampires.otf" id="1_6t488"]
+[ext_resource type="Script" path="res://ui/StartMenu.gd" id="2_w15c3"]
 
 [sub_resource type="Theme" id="Theme_ig0ah"]
 default_font = ExtResource("1_6t488")
@@ -33,6 +34,7 @@ offset_right = 287.0
 offset_bottom = 93.0
 theme = SubResource("Theme_ig0ah")
 theme_override_constants/separation = 0
+script = ExtResource("2_w15c3")
 
 [node name="NewGame" type="Button" parent="."]
 layout_mode = 2
@@ -70,3 +72,6 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_yn4rb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q6d1w")
 text = "Quit"
 alignment = 0
+
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

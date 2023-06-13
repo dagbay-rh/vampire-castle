@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://blwx1tabkh66b"]
+[gd_scene load_steps=13 format=3 uid="uid://blwx1tabkh66b"]
 
 [ext_resource type="Script" path="res://levels/world/World.gd" id="1_1dsrk"]
 [ext_resource type="Texture2D" uid="uid://ccxm3kp6yjc36" path="res://art/backgrounds/CryptExterior.png" id="2_1iogo"]
-[ext_resource type="PackedScene" uid="uid://cdtgjds8pl5s" path="res://monsters/generic/Generic.tscn" id="2_pytok"]
 [ext_resource type="PackedScene" uid="uid://s7hdtgo3hs3c" path="res://characters/vamp/Vampire.tscn" id="3_mb0yl"]
 [ext_resource type="Texture2D" uid="uid://dre34cibdt21k" path="res://characters/vamp/bats.png" id="4_6puwl"]
 [ext_resource type="Script" path="res://levels/world/Bat.gd" id="4_t781f"]
@@ -11,26 +10,6 @@
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y5yo2"]
 gradient = SubResource("Gradient_jdhxu")
-
-[sub_resource type="GDScript" id="GDScript_a11bb"]
-script/source = "extends CharacterBody2D
-
-@export var move_speed : float = 100
-
-func _physics_process(_delta):
-	var input_direction = Vector2(
-		Input.get_action_strength(\"right\") - Input.get_action_strength(\"left\"),
-		Input.get_action_strength(\"down\") - Input.get_action_strength(\"up\")
-	)
-	print(input_direction)
-
-	velocity = input_direction * move_speed
-
-	move_and_slide()
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m67ns"]
-size = Vector2(8, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a14l1"]
 size = Vector2(34, 12)
@@ -112,10 +91,6 @@ position = Vector2(-8, -30)
 [node name="Vampire" parent="Node2D" instance=ExtResource("3_mb0yl")]
 position = Vector2(-57, 0)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Vampire"]
-position = Vector2(1, -16)
-shape = SubResource("RectangleShape2D_m67ns")
-
 [node name="Bat" type="CharacterBody2D" parent="Node2D"]
 motion_mode = 1
 script = ExtResource("4_t781f")
@@ -125,6 +100,7 @@ position = Vector2(2, -4)
 scale = Vector2(0.2975, 0.2575)
 texture = ExtResource("4_6puwl")
 hframes = 11
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bat"]
 position = Vector2(-1, 1)

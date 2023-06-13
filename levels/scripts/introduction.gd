@@ -9,7 +9,7 @@ func _ready():
 	$AnimationPlayer.connect("animation_finished", startTimer)
 	
 func change_to_main_scene():
-	get_tree().change_scene_to_file("res://levels/world/World.tscn")
+	get_tree().change_scene_to_file("res://levels/castle/Castle.tscn")
 	
 func startTimer(anim_name):
 	$Timer.start(wait_time)

@@ -1,7 +1,7 @@
 extends Control
 
 func _on_new_game_pressed():
-	get_tree().change_scene_to_file("res://levels/world/World.tscn")
+	SceneSwitch.switch_scene("res://levels/introduction.tscn")
 	
 func _on_load_game_pressed():
 	pass

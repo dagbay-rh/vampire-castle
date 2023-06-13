@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://drompq51ufdw3" path="res://art/backgrounds/City.png" id="3_pr60r"]
 [ext_resource type="PackedScene" uid="uid://d0b64vltes7ia" path="res://ui/GameTitle.tscn" id="4_vijw2"]
 [ext_resource type="PackedScene" uid="uid://d1cmlcrv5klwe" path="res://ui/StartMenu.tscn" id="5_sdbgt"]
-[ext_resource type="AudioStream" uid="uid://dug6214c2v5sf" path="res://art/music/06 - DavidKBD - Belmont Chronicles Pack - Cathedral.ogg" id="6_k3jkd"]
+[ext_resource type="AudioStream" uid="uid://dug6214c2v5sf" path="res://art/music/06 - DavidKBD - Belmont Chronicles Pack - Cathedral.ogg" id="6_ol2yc"]
 
 [node name="TitleScreenBackground" type="ParallaxBackground"]
 script = ExtResource("1_wpnnx")
@@ -36,5 +36,5 @@ offset_right = 540.0
 offset_bottom = 557.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_k3jkd")
+stream = ExtResource("6_ol2yc")
 autoplay = true

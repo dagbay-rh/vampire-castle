@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr6336fg2bwhp"]
+
+[ext_resource type="Script" path="res://levels/scripts/introduction.gd" id="1_h0xd2"]
+[ext_resource type="FontFile" uid="uid://dowuq7wnas43t" path="res://ui/fonts/bitmap.ttf" id="2_emv3d"]
+
+[sub_resource type="Animation" id="Animation_7tvdg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d6aht"]
+resource_name = "show_text"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o5bl6"]
+_data = {
+"RESET": SubResource("Animation_7tvdg"),
+"show_text": SubResource("Animation_d6aht")
+}
+
+[node name="introduction" type="Node"]
+script = ExtResource("1_h0xd2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -51.0
+offset_right = 340.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.894118, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_emv3d")
+theme_override_font_sizes/font_size = 30
+text = "Somewhere deep in Transylvania
+
+1649"
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o5bl6")
+}
+
+[node name="Timer" type="Timer" parent="."]

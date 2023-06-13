@@ -1,36 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://blwx1tabkh66b"]
+[gd_scene load_steps=13 format=3 uid="uid://blwx1tabkh66b"]
 
-[ext_resource type="Script" path="res://levels/world/world.gd" id="1_kvurr"]
+[ext_resource type="Script" path="res://levels/world/World.gd" id="1_1dsrk"]
 [ext_resource type="Texture2D" uid="uid://ccxm3kp6yjc36" path="res://art/backgrounds/CryptExterior.png" id="2_1iogo"]
-[ext_resource type="PackedScene" uid="uid://cdtgjds8pl5s" path="res://monsters/generic/Generic.tscn" id="2_pytok"]
 [ext_resource type="PackedScene" uid="uid://s7hdtgo3hs3c" path="res://characters/vamp/Vampire.tscn" id="3_mb0yl"]
 [ext_resource type="Texture2D" uid="uid://dre34cibdt21k" path="res://characters/vamp/bats.png" id="4_6puwl"]
-[ext_resource type="Script" path="res://levels/world/Bat.gd" id="4_t781f"]
+[ext_resource type="Script" path="res://characters/vamp/Bat.gd" id="4_f42s0"]
 
 [sub_resource type="Gradient" id="Gradient_jdhxu"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y5yo2"]
 gradient = SubResource("Gradient_jdhxu")
-
-[sub_resource type="GDScript" id="GDScript_a11bb"]
-script/source = "extends CharacterBody2D
-
-@export var move_speed : float = 100
-
-func _physics_process(_delta):
-	var input_direction = Vector2(
-		Input.get_action_strength(\"right\") - Input.get_action_strength(\"left\"),
-		Input.get_action_strength(\"down\") - Input.get_action_strength(\"up\")
-	)
-	print(input_direction)
-
-	velocity = input_direction * move_speed
-
-	move_and_slide()
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m67ns"]
-size = Vector2(8, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a14l1"]
 size = Vector2(34, 12)
@@ -76,7 +55,7 @@ _data = {
 animation = &"wings_down"
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_kvurr")
+script = ExtResource("1_1dsrk")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -135.0
@@ -94,10 +73,11 @@ texture = ExtResource("2_1iogo")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-2, -1)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 6
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-2, -1)
 polygon = PackedVector2Array(4, 17, 5, 18, -72, 19, -76, 14, -84, 14, -115, 45, -115, 51, -115, 63, 33, 63, 105, 62, 105, 54, 97, 54, 97, 51, 101, 51, 101, 45, 69, 14, 58, 14, 56, 16, 56, -4, 63, -4, 63, -13, 46, -30, 38, -30, 37, -26, 23, -26, 20, -28, 13, -29, -4, -12, -4, -5, 5, -4, 5, 17)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -108,20 +88,12 @@ zoom = Vector2(5, 5)
 y_sort_enabled = true
 position = Vector2(-8, -30)
 
-[node name="Generic" parent="Node2D" instance=ExtResource("2_pytok")]
-position = Vector2(71, 33)
-
 [node name="Vampire" parent="Node2D" instance=ExtResource("3_mb0yl")]
-position = Vector2(-32, 17)
-script = SubResource("GDScript_a11bb")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Vampire"]
-position = Vector2(1, -16)
-shape = SubResource("RectangleShape2D_m67ns")
+position = Vector2(-57, 0)
 
 [node name="Bat" type="CharacterBody2D" parent="Node2D"]
 motion_mode = 1
-script = ExtResource("4_t781f")
+script = ExtResource("4_f42s0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Bat"]
 position = Vector2(2, -4)

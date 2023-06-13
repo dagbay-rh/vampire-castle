@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://q5hji5sheewh"]
+[gd_scene load_steps=3 format=3 uid="uid://b8oh0hyjf28iq"]
 
 [ext_resource type="PackedScene" uid="uid://d0ds6ojwprtqh" path="res://ui/TitleScreenBackground.tscn" id="2_nm3ho"]
 [ext_resource type="AudioStream" uid="uid://dug6214c2v5sf" path="res://art/music/06 - DavidKBD - Belmont Chronicles Pack - Cathedral.ogg" id="2_ro3am"]

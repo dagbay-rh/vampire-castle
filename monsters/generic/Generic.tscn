@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdtgjds8pl5s"]
 
-[ext_resource type="Texture2D" uid="uid://213dncpot4iu" path="res://enemies/generic/AdeptNecromancerIdle.png" id="1_u02kj"]
+[ext_resource type="Texture2D" uid="uid://213dncpot4iu" path="res://monsters/generic/AdeptNecromancerIdle.png" id="1_u02kj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ttgp"]
 atlas = ExtResource("1_u02kj")
@@ -42,6 +42,8 @@ animations = [{
 radius = 7.0
 
 [node name="Generic" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8ag1x")

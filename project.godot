@@ -50,6 +50,10 @@ up={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="walls"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

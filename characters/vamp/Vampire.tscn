@@ -1,10 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://s7hdtgo3hs3c"]
 
+[ext_resource type="Script" path="res://characters/vamp/Vampire.gd" id="1_c5phr"]
 [ext_resource type="Texture2D" uid="uid://c14xo3f6rxkte" path="res://characters/vamp/player.png" id="1_p1ohc"]
-
-[sub_resource type="GDScript" id="GDScript_gdwaf"]
-script/source = "extends CharacterBody2D
-"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvyym"]
 radius = 3.0
@@ -14,7 +11,7 @@ height = 14.0
 radius = 3.0
 
 [node name="Vampire" type="CharacterBody2D"]
-script = SubResource("GDScript_gdwaf")
+script = ExtResource("1_c5phr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2, -16)

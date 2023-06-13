@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccxm3kp6yjc36" path="res://art/backgrounds/CryptExterior.png" id="2_1iogo"]
 [ext_resource type="PackedScene" uid="uid://s7hdtgo3hs3c" path="res://characters/vamp/Vampire.tscn" id="3_mb0yl"]
 [ext_resource type="Texture2D" uid="uid://dre34cibdt21k" path="res://characters/vamp/bats.png" id="4_6puwl"]
-[ext_resource type="Script" path="res://levels/world/Bat.gd" id="4_t781f"]
+[ext_resource type="Script" path="res://characters/vamp/Bat.gd" id="4_f42s0"]
 
 [sub_resource type="Gradient" id="Gradient_jdhxu"]
 
@@ -93,14 +93,13 @@ position = Vector2(-57, 0)
 
 [node name="Bat" type="CharacterBody2D" parent="Node2D"]
 motion_mode = 1
-script = ExtResource("4_t781f")
+script = ExtResource("4_f42s0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Bat"]
 position = Vector2(2, -4)
 scale = Vector2(0.2975, 0.2575)
 texture = ExtResource("4_6puwl")
 hframes = 11
-frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bat"]
 position = Vector2(-1, 1)

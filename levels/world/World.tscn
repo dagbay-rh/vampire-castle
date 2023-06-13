@@ -4,28 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://ccxm3kp6yjc36" path="res://art/backgrounds/CryptExterior.png" id="2_1iogo"]
 [ext_resource type="PackedScene" uid="uid://cdtgjds8pl5s" path="res://monsters/generic/Generic.tscn" id="2_pytok"]
 [ext_resource type="PackedScene" uid="uid://s7hdtgo3hs3c" path="res://characters/vamp/Vampire.tscn" id="3_mb0yl"]
+[ext_resource type="Script" path="res://characters/vamp/Vampire.gd" id="5_d1m4t"]
 
 [sub_resource type="Gradient" id="Gradient_jdhxu"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y5yo2"]
 gradient = SubResource("Gradient_jdhxu")
-
-[sub_resource type="GDScript" id="GDScript_a11bb"]
-script/source = "extends CharacterBody2D
-
-@export var move_speed : float = 100
-
-func _physics_process(_delta):
-	var input_direction = Vector2(
-		Input.get_action_strength(\"right\") - Input.get_action_strength(\"left\"),
-		Input.get_action_strength(\"down\") - Input.get_action_strength(\"up\")
-	)
-	print(input_direction)
-
-	velocity = input_direction * move_speed
-	
-	move_and_slide()
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m67ns"]
 size = Vector2(8, 16)
@@ -68,7 +52,7 @@ position = Vector2(71, 33)
 
 [node name="Vampire" parent="Node2D" instance=ExtResource("3_mb0yl")]
 position = Vector2(-32, 17)
-script = SubResource("GDScript_a11bb")
+script = ExtResource("5_d1m4t")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Vampire"]
 position = Vector2(1, -16)

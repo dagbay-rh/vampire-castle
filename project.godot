@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="vampire"
-run/main_scene="res://ui/TitleScreenBackground.tscn"
+run/main_scene="res://main_scene.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SceneSwitch="*res://SceneSwitch.gd"
 
 [editor_plugins]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://blwx1tabkh66b"]
+[gd_scene load_steps=16 format=3 uid="uid://blwx1tabkh66b"]
 
 [ext_resource type="Script" path="res://levels/world/world.gd" id="1_kvurr"]
 [ext_resource type="Texture2D" uid="uid://ccxm3kp6yjc36" path="res://art/backgrounds/CryptExterior.png" id="2_1iogo"]
@@ -35,6 +35,21 @@ size = Vector2(8, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a14l1"]
 size = Vector2(34, 12)
 
+[sub_resource type="Animation" id="Animation_imsir"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_pqfv5"]
 resource_name = "wings_down"
 loop_mode = 1
@@ -49,21 +64,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
-
-[sub_resource type="Animation" id="Animation_imsir"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cg6u1"]

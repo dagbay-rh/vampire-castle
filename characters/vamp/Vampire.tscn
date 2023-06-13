@@ -11,30 +11,35 @@ height = 14.0
 radius = 3.0
 
 [node name="Vampire" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_c5phr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -16)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1, -7.5)
+scale = Vector2(0.4375, 0.40625)
 texture = ExtResource("1_p1ohc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -15)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_lvyym")
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(1, -15)
 shape = SubResource("CircleShape2D_2fwpl")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(8, -16)
 shape = SubResource("CircleShape2D_2fwpl")
 
 [node name="Trigger" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
 position = Vector2(1, -18)

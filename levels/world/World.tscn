@@ -31,6 +31,7 @@ stretch_mode = 4
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-2, -1)
+collision_mask = 6
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(4, 17, 5, 18, -72, 19, -76, 14, -84, 14, -115, 45, -115, 51, -115, 63, 33, 63, 105, 62, 105, 54, 97, 54, 97, 51, 101, 51, 101, 45, 69, 14, 58, 14, 56, 16, 56, -4, 63, -4, 63, -13, 46, -30, 38, -30, 37, -26, 23, -26, 20, -28, 13, -29, -4, -12, -4, -5, 5, -4, 5, 17)
@@ -43,7 +44,8 @@ zoom = Vector2(5, 5)
 y_sort_enabled = true
 position = Vector2(-8, -30)
 
-[node name="Generic" parent="Node2D" instance=ExtResource("2_pytok")]
-position = Vector2(71, 33)
-
 [node name="Vampire" parent="Node2D" instance=ExtResource("3_mb0yl")]
+position = Vector2(12, 23)
+
+[node name="Generic" parent="Node2D" instance=ExtResource("2_pytok")]
+position = Vector2(89, 22)

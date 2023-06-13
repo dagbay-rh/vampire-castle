@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://blwx1tabkh66b"]
+[gd_scene load_steps=15 format=3 uid="uid://blwx1tabkh66b"]
 
 [ext_resource type="Script" path="res://levels/world/world.gd" id="1_kvurr"]
 [ext_resource type="Texture2D" uid="uid://ccxm3kp6yjc36" path="res://art/backgrounds/CryptExterior.png" id="2_1iogo"]
 [ext_resource type="PackedScene" uid="uid://cdtgjds8pl5s" path="res://monsters/generic/Generic.tscn" id="2_pytok"]
 [ext_resource type="PackedScene" uid="uid://s7hdtgo3hs3c" path="res://characters/vamp/Vampire.tscn" id="3_mb0yl"]
+[ext_resource type="Texture2D" uid="uid://dre34cibdt21k" path="res://characters/vamp/bats.png" id="4_6puwl"]
+[ext_resource type="Script" path="res://levels/world/Bat.gd" id="4_t781f"]
 
 [sub_resource type="Gradient" id="Gradient_jdhxu"]
 
@@ -23,12 +25,55 @@ func _physics_process(_delta):
 	print(input_direction)
 
 	velocity = input_direction * move_speed
-	
+
 	move_and_slide()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m67ns"]
 size = Vector2(8, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a14l1"]
+size = Vector2(34, 12)
+
+[sub_resource type="Animation" id="Animation_pqfv5"]
+resource_name = "wings_down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_imsir"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cg6u1"]
+_data = {
+"RESET": SubResource("Animation_imsir"),
+"wings_down": SubResource("Animation_pqfv5")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ygr5s"]
+animation = &"wings_down"
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_kvurr")
@@ -73,3 +118,27 @@ script = SubResource("GDScript_a11bb")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Vampire"]
 position = Vector2(1, -16)
 shape = SubResource("RectangleShape2D_m67ns")
+
+[node name="Bat" type="CharacterBody2D" parent="Node2D"]
+motion_mode = 1
+script = ExtResource("4_t781f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Bat"]
+position = Vector2(2, -4)
+scale = Vector2(0.2975, 0.2575)
+texture = ExtResource("4_6puwl")
+hframes = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Bat"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_a14l1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Bat"]
+libraries = {
+"": SubResource("AnimationLibrary_cg6u1")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Node2D/Bat"]
+tree_root = SubResource("AnimationNodeAnimation_ygr5s")
+anim_player = NodePath("../AnimationPlayer")
+active = true

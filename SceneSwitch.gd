@@ -6,7 +6,7 @@ var mainScene = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if not get_node("/root/MainScene"):
-		pass
+		mainScene = get_tree().root
 	else:
 		mainScene = get_node("/root/MainScene")
 		current_scene = mainScene.get_child(mainScene.get_child_count() - 1)

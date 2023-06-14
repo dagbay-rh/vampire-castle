@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cdtgjds8pl5s" path="res://monsters/generic/Generic.tscn" id="5_k0rj4"]
 [ext_resource type="Texture2D" uid="uid://c2ari8ttk3mog" path="res://levels/castle/tiles/platform.png" id="5_pt1ba"]
 [ext_resource type="Texture2D" uid="uid://cspf1npq3f75h" path="res://levels/castle/tiles/spikes.png" id="6_68h61"]
-[ext_resource type="PackedScene" path="res://characters/vamp/Belmont.tscn" id="6_lipeg"]
+[ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="6_lipeg"]
 [ext_resource type="Texture2D" uid="uid://bjl6l7grkis50" path="res://levels/castle/tiles/stairs.png" id="7_ncjqo"]
 [ext_resource type="Texture2D" uid="uid://b7hteudc616qo" path="res://levels/castle/tiles/wall.png" id="8_pp3if"]
 
@@ -755,7 +755,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(200, -117)
+position = Vector2(196, -81)
 zoom = Vector2(3, 3)
 process_callback = 0
 position_smoothing_enabled = true

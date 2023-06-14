@@ -324,7 +324,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"battle_ready",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -356,7 +356,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"climb_ledge",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -371,9 +371,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_roe37")
 }],
-"loop": true,
+"loop": false,
 "name": &"crouch",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -408,7 +408,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -425,7 +425,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -480,7 +480,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump_flip",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -503,7 +503,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"running",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -524,7 +524,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aatio")
 }],
-"loop": true,
+"loop": false,
 "name": &"side_slash",
 "speed": 10.0
 }, {
@@ -544,7 +544,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k0fru")
 }],
-"loop": true,
+"loop": false,
 "name": &"slide",
 "speed": 5.0
 }, {
@@ -570,7 +570,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p576u")
 }],
-"loop": true,
+"loop": false,
 "name": &"super_slash",
 "speed": 10.0
 }, {
@@ -593,7 +593,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_738q6")
 }],
-"loop": true,
+"loop": false,
 "name": &"upward_slash",
 "speed": 10.0
 }]
@@ -606,16 +606,20 @@ radius = 7.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_moofs")
+jump_velocity = -300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xq2vw")
-animation = &"running"
+animation = &"crouch"
+autoplay = "default"
 
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+[node name="bodyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
 shape = SubResource("CapsuleShape2D_14eh3")
 
-[node name="Collision2" type="CollisionShape2D" parent="."]
-position = Vector2(15, 3)
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+position = Vector2(15, 2.5)
 shape = SubResource("CapsuleShape2D_oold5")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_finished"]

@@ -696,9 +696,10 @@ jump_velocity = -300.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xq2vw")
+animation = &"slide"
 autoplay = "default"
-frame = 2
-frame_progress = 0.500115
+frame = 4
+frame_progress = 1.0
 
 [node name="bodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
@@ -708,4 +709,7 @@ shape = SubResource("CapsuleShape2D_14eh3")
 position = Vector2(15, 2.5)
 shape = SubResource("CapsuleShape2D_oold5")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b7hteudc616qo" path="res://levels/castle/tiles/wall.png" id="8_pp3if"]
 [ext_resource type="Texture2D" uid="uid://bcqwg1cppefc1" path="res://levels/castle/tiles/arch.png" id="9_a2n1x"]
 [ext_resource type="Texture2D" uid="uid://bax51selfivtj" path="res://levels/castle/tiles/column.png" id="10_hhjed"]
-[ext_resource type="Texture2D" uid="uid://ysaf55opqyif" path="res://characters/enemies/_Attack2.png" id="13_45a2t"]
+[ext_resource type="Texture2D" uid="uid://dqmqktcmn4n4l" path="res://characters/enemies/knight/_Attack2.png" id="13_45a2t"]
 [ext_resource type="Script" path="res://characters/enemies/knight/Knight.gd" id="15_6821i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_of1by"]

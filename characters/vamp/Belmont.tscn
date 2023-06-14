@@ -694,7 +694,6 @@ jump_velocity = -300.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xq2vw")
-animation = &"crouch"
 autoplay = "default"
 
 [node name="bodyCollision" type="CollisionShape2D" parent="."]

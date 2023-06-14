@@ -91,6 +91,10 @@ transform={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://cutscene.dialogue", "res://dialogue/cutscene.dialogue")
+
 [layer_names]
 
 2d_physics/layer_1="walls"

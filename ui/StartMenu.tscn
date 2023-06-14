@@ -76,5 +76,6 @@ alignment = 0
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="onTimerTimeout"]

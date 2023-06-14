@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b7hteudc616qo" path="res://levels/castle/tiles/wall.png" id="8_pp3if"]
 [ext_resource type="Texture2D" uid="uid://bcqwg1cppefc1" path="res://levels/castle/tiles/arch.png" id="9_a2n1x"]
 [ext_resource type="Texture2D" uid="uid://bax51selfivtj" path="res://levels/castle/tiles/column.png" id="10_hhjed"]
-[ext_resource type="Texture2D" uid="uid://dqmqktcmn4n4l" path="res://characters/enemies/knight/_Attack2.png" id="13_45a2t"]
-[ext_resource type="Script" path="res://characters/enemies/knight/Knight.gd" id="15_6821i"]
+[ext_resource type="Script" path="res://enemies/knight/Knight.gd" id="15_rx3yt"]
+[ext_resource type="Texture2D" uid="uid://dqmqktcmn4n4l" path="res://enemies/knight/_Attack2.png" id="16_mml4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_of1by"]
 texture = ExtResource("5_pt1ba")
@@ -931,7 +931,7 @@ position = Vector2(361, -73)
 
 [node name="Knight" type="CharacterBody2D" parent="Node2D"]
 position = Vector2(-28, -104)
-script = ExtResource("15_6821i")
+script = ExtResource("15_rx3yt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Knight"]
 autoplay = "knight_idle"
@@ -945,5 +945,5 @@ shape = SubResource("RectangleShape2D_mqv2l")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Knight"]
 position = Vector2(-31, 3)
-texture = ExtResource("13_45a2t")
+texture = ExtResource("16_mml4f")
 hframes = 6

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c14xo3f6rxkte"
-path="res://.godot/imported/player.png-c51a1f77b1ef7a7fe472254ad66d544d.ctex"
+uid="uid://bfrvp5xf6qgw1"
+path="res://.godot/imported/adventurer-v1.5-Sheet.png-13ab2cd974293c015bf0de820e010722.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/vamp/player.png"
-dest_files=["res://.godot/imported/player.png-c51a1f77b1ef7a7fe472254ad66d544d.ctex"]
+source_file="res://characters/vamp/adventurer-v1.5-Sheet.png"
+dest_files=["res://.godot/imported/adventurer-v1.5-Sheet.png-13ab2cd974293c015bf0de820e010722.ctex"]
 
 [params]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu3enmdjyjpuk"]
+[gd_scene load_steps=10 format=3 uid="uid://bu3enmdjyjpuk"]
 
 [ext_resource type="Texture2D" uid="uid://u4gtxbrhxqlv" path="res://levels/castle/tiles/brick.png" id="1_b4mmo"]
 [ext_resource type="Texture2D" uid="uid://cx0oylne6rssa" path="res://levels/castle/tiles/bounds.png" id="2_fucuq"]
 [ext_resource type="PackedScene" uid="uid://s7hdtgo3hs3c" path="res://characters/vamp/Vampire.tscn" id="3_070jk"]
 [ext_resource type="Script" path="res://characters/vamp/Vampire.gd" id="4_la4sm"]
 [ext_resource type="PackedScene" uid="uid://cdtgjds8pl5s" path="res://monsters/generic/Generic.tscn" id="5_k0rj4"]
+[ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="6_lipeg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26ook"]
 resource_name = "Brick"
@@ -423,3 +424,6 @@ script = ExtResource("4_la4sm")
 
 [node name="Generic" parent="Node2D" instance=ExtResource("5_k0rj4")]
 position = Vector2(408, -84)
+
+[node name="Belmont" parent="." instance=ExtResource("6_lipeg")]
+position = Vector2(190, -88)

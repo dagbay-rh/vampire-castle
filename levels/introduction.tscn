@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr6336fg2bwhp"]
+[gd_scene load_steps=6 format=3 uid="uid://dt1kqio18gxy"]
 
 [ext_resource type="Script" path="res://levels/scripts/introduction.gd" id="1_h0xd2"]
 [ext_resource type="FontFile" uid="uid://dowuq7wnas43t" path="res://ui/fonts/bitmap.ttf" id="2_emv3d"]

@@ -10,6 +10,7 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animation_locked : bool = false
+var is_bat : bool = false
 var direction : Vector2 = Vector2.ZERO
 
 func _ready():
@@ -23,21 +24,21 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		if is_on_floor() && is_bat == false:
 			jump()
 	
 	if Input.is_action_pressed("down"):
 		if is_on_floor():
 			crouch()
-	
+			
+	if Input.is_action_just_pressed("transform"):
+		transform()
+
 	if Input.is_action_just_released("down"):
 		if animated_sprite.animation == "crouch":
-			animation_locked = false
 			animated_sprite.stop()
 			animated_sprite.emit_signal("animation_finished")
 
-
-		
 	direction = Input.get_vector("left", "right", "up", "down")
 	if direction:
 		velocity.x = direction.x * speed
@@ -50,7 +51,7 @@ func _physics_process(delta):
 
 func update_animation():
 	if not animation_locked:
-		if not is_on_floor():
+		if not is_on_floor() && is_bat == false:
 			animated_sprite.play("jump_flip")
 		else:
 			if direction.x != 0:
@@ -74,6 +75,15 @@ func crouch():
 		update_collision_shape()
 		animated_sprite.play("crouch")
 		animation_locked = true
+		
+func transform():
+	is_bat = true
+	animated_sprite.scale.x = 0.115
+	animated_sprite.scale.y = 0.115
+	animated_sprite.position.x = 1.5
+	animated_sprite.position.y = -1.5
+	animated_sprite.play("bat_idle")
+	animation_locked = true
 		
 func update_collision_shape():
 	if animated_sprite.animation == "crouch":

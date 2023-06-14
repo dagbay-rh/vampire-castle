@@ -1,7 +1,52 @@
-[gd_scene load_steps=82 format=3 uid="uid://cy37dfssjmopg"]
+[gd_scene load_steps=94 format=3 uid="uid://cy37dfssjmopg"]
 
 [ext_resource type="Script" path="res://characters/vamp/Belmont.gd" id="1_moofs"]
 [ext_resource type="Texture2D" uid="uid://bfrvp5xf6qgw1" path="res://art/sprites/adventurer-v1.5-Sheet.png" id="1_x8cks"]
+[ext_resource type="Texture2D" uid="uid://dre34cibdt21k" path="res://characters/vamp/bats.png" id="2_dhgp4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8kky"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p86gg"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21b5x"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1lle"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbt2q"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ipdv"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0vdg"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdxty"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3wpw"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(1600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktdyt"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(1800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1lgt"]
+atlas = ExtResource("2_dhgp4")
+region = Rect2(2000, 0, 200, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_srdg7"]
 atlas = ExtResource("1_x8cks")
@@ -309,6 +354,44 @@ region = Rect2(250, 222, 50, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xq2vw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8kky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p86gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21b5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1lle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbt2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ipdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0vdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdxty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3wpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktdyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1lgt")
+}],
+"loop": true,
+"name": &"bat_idle",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_srdg7")

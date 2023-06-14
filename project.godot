@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneSwitch="*res://SceneSwitch.gd"
+MusicPlayer="*res://ui/music_player.tscn"
 
 [editor_plugins]
 

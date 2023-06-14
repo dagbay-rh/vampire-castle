@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtna1opbd3nui"]
+
+[ext_resource type="AudioStream" uid="uid://dug6214c2v5sf" path="res://art/music/06 - DavidKBD - Belmont Chronicles Pack - Cathedral.ogg" id="1_k45wa"]
+[ext_resource type="Script" path="res://ui/music_player.gd" id="1_n2vqh"]
+
+[sub_resource type="Animation" id="Animation_7gda8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7sgy2"]
+resource_name = "fade_music_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BGMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_21qru"]
+_data = {
+"RESET": SubResource("Animation_7gda8"),
+"fade_music": SubResource("Animation_7sgy2")
+}
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_n2vqh")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_k45wa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_21qru")
+}

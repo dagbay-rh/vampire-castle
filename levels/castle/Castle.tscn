@@ -880,8 +880,5 @@ position = Vector2(196, -81)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Belmont"]
 remote_path = NodePath("../../../Camera2D")
 
-[node name="Vampire" parent="Node2D" instance=ExtResource("3_070jk")]
-position = Vector2(141, -77)
-
 [node name="Generic" parent="Node2D" instance=ExtResource("5_k0rj4")]
 position = Vector2(361, -73)

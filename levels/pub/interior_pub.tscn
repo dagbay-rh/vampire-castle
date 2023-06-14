@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dcywifg8opnax" path="res://characters/enemies/knight/_Attack2NoMovement.png" id="6_0ts5o"]
 [ext_resource type="Texture2D" uid="uid://dre34cibdt21k" path="res://characters/vamp/bats.png" id="6_64cnl"]
 [ext_resource type="Texture2D" uid="uid://behlhbc8o3c1d" path="res://characters/enemies/knight/_Idle.png" id="7_hxby5"]
-[ext_resource type="Texture2D" uid="uid://bfrvp5xf6qgw1" path="res://art/sprites/adventurer-v1.5-Sheet.png" id="7_ieu6u"]
+[ext_resource type="Texture2D" uid="uid://bfrvp5xf6qgw1" path="res://characters/vamp/adventurer-v1.5-Sheet.png" id="7_ieu6u"]
 [ext_resource type="Texture2D" uid="uid://dolkmryouiyg6" path="res://characters/enemies/knight/_Roll.png" id="8_a3psv"]
 [ext_resource type="Texture2D" uid="uid://d4ivg58aasqbo" path="res://characters/enemies/knight/_Run.png" id="9_v6bib"]
 [ext_resource type="PackedScene" uid="uid://cfqqayjra08mv" path="res://ui/cutscene_dialogue.tscn" id="10_2pbk5"]

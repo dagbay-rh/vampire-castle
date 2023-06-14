@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # game state
 var animation_locked : bool = false
 var is_bat : bool = false
+var recently_slid : bool = false
 
 # inputs
 var input : Dictionary = {}
@@ -45,7 +46,12 @@ func get_input():
 		# transform
 		"transform": Input.is_action_pressed("transform"),
 		"just_transform": Input.is_action_just_pressed("transform"),
-		"released_transform": Input.is_action_just_released("transform")
+		"released_transform": Input.is_action_just_released("transform"),
+		
+		# slide
+		"slide": Input.is_action_pressed("slide"),
+		"just_slide": Input.is_action_just_pressed("slide"),
+		"released_slide": Input.is_action_just_released("slide"),
 	}
 	
 	direction = input["direction"]
@@ -78,6 +84,14 @@ func physics_process_vampire(delta):
 	
 	if input["just_transform"]:
 		bat_transform()
+		
+	if input["just_slide"] and is_on_floor() and recently_slid == false:
+		slide()
+		
+	if input["released_slide"]:
+		if animated_sprite.animation == "slide":
+			animated_sprite.stop()
+			animated_sprite.emit_signal("animation_finished")
 	
 	if input["released_down"]:
 		if animated_sprite.animation == "crouch":
@@ -133,6 +147,12 @@ func crouch():
 		update_collision_shape()
 		animated_sprite.play("crouch")
 		animation_locked = true
+		
+func slide():
+	if direction.x != 0:
+		update_collision_shape()
+		animated_sprite.play("slide")
+		animation_locked = true
 
 
 func bat_transform():
@@ -172,3 +192,12 @@ func _on_animated_sprite_2d_finished():
 	if(animated_sprite.animation == "crouch"):
 		reset_collision_shape()
 		animation_locked = false
+	if(animated_sprite.animation == "slide"):
+		reset_collision_shape()
+		recently_slid = true
+		$Timer.wait_time = 1
+		$Timer.start()
+		animation_locked = false
+	
+func _on_timer_timeout():
+	recently_slid = false # Replace with function body.

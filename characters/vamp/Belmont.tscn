@@ -695,6 +695,8 @@ jump_velocity = -300.0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xq2vw")
 autoplay = "default"
+frame = 2
+frame_progress = 0.500115
 
 [node name="bodyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)

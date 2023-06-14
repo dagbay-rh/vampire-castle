@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var speed_bat_x : float = 250.0
 @export var speed_bat_y : float = 250.0
 
+@export var friction : float = 2000.0
+
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var body_collision : CollisionShape2D = $bodyCollision
 
@@ -101,7 +103,7 @@ func physics_process_vampire(delta):
 	if direction:
 		velocity.x = direction.x * speed_vampire
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed_vampire)
+		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
 
 func physics_process_bat(delta):
@@ -112,8 +114,8 @@ func physics_process_bat(delta):
 		velocity.x = direction.x * speed_bat_x
 		velocity.y = direction.y * speed_bat_y
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed_bat_x)
-		velocity.y = move_toward(velocity.y, 0, speed_bat_y)
+		velocity.x = move_toward(velocity.x, 0, friction * delta)
+		velocity.y = move_toward(velocity.y, 0, friction * delta)
 
 
 func update_animation():

@@ -1799,7 +1799,7 @@ tracks/14/keys = {
 
 [sub_resource type="Animation" id="Animation_r44vw"]
 resource_name = "door_open"
-length = 30.0
+length = 24.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2109,3 +2109,5 @@ offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

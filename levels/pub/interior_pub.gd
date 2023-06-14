@@ -10,3 +10,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func _on_animation_player_animation_finished(anim_name):
+	SceneSwitch.switch_scene("res://levels/castle/Castle.tscn")
+

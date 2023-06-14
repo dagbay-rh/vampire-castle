@@ -1,21 +1,21 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdtgjds8pl5s"]
 
-[ext_resource type="Texture2D" uid="uid://213dncpot4iu" path="res://monsters/generic/AdeptNecromancerIdle.png" id="1_u02kj"]
+[ext_resource type="Texture2D" uid="uid://213dncpot4iu" path="res://characters/monsters/generic/AdeptNecromancerIdle.png" id="1_hs43p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ttgp"]
-atlas = ExtResource("1_u02kj")
+atlas = ExtResource("1_hs43p")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vjkp"]
-atlas = ExtResource("1_u02kj")
+atlas = ExtResource("1_hs43p")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58ya1"]
-atlas = ExtResource("1_u02kj")
+atlas = ExtResource("1_hs43p")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8c2l"]
-atlas = ExtResource("1_u02kj")
+atlas = ExtResource("1_hs43p")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ag1x"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://213dncpot4iu"
-path="res://.godot/imported/AdeptNecromancerIdle.png-a8cfe86f3105081111b9a4ac650a2e02.ctex"
+path="res://.godot/imported/AdeptNecromancerIdle.png-1172e831221188b046acc4b68ba44484.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://monsters/generic/AdeptNecromancerIdle.png"
-dest_files=["res://.godot/imported/AdeptNecromancerIdle.png-a8cfe86f3105081111b9a4ac650a2e02.ctex"]
+source_file="res://characters/monsters/generic/AdeptNecromancerIdle.png"
+dest_files=["res://.godot/imported/AdeptNecromancerIdle.png-1172e831221188b046acc4b68ba44484.ctex"]
 
 [params]
 

@@ -26,8 +26,7 @@ var direction : Vector2 = Vector2.ZERO
 
 
 func _ready():
-	pass
-
+	PlayerState.set_player_node(str(self.get_path()))
 
 # All iputs we want to keep track of
 func get_input():

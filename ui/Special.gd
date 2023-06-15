@@ -3,7 +3,7 @@ extends TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_user_signal("max_reached", [{"value": 100}])
+	add_user_signal("max_reached", [{"name": "value", "type": TYPE_INT }])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

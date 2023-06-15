@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2x2qnqr4lvj2"]
+
+[ext_resource type="Texture2D" uid="uid://r1vyeqdc5jfy" path="res://levels/castle/assets/animated/chest/chest_damaged.png" id="1_dfcgf"]
+[ext_resource type="Texture2D" uid="uid://b6wrc8vt0pjt1" path="res://levels/castle/assets/animated/chest/chest_1.png" id="2_a8oej"]
+[ext_resource type="Texture2D" uid="uid://c4yhyk668tskr" path="res://levels/castle/assets/animated/chest/chest_2.png" id="3_y0o0j"]
+[ext_resource type="Texture2D" uid="uid://blhsfen4xaknd" path="res://levels/castle/assets/animated/chest/chest_3.png" id="4_myuuw"]
+[ext_resource type="Texture2D" uid="uid://cnnwi7g16ofpk" path="res://levels/castle/assets/animated/chest/chest_4.png" id="5_s0stq"]
+[ext_resource type="Texture2D" uid="uid://b3ueunnup3y5x" path="res://levels/castle/assets/animated/chest/chest_5.png" id="6_nn2hu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8awvh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dfcgf")
+}],
+"loop": false,
+"name": &"damaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a8oej")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a8oej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y0o0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_myuuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s0stq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nn2hu")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 3.0
+}]
+
+[node name="Chest" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8awvh")
+animation = &"opening"

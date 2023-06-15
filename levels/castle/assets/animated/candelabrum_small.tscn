@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://c22jxd6p8g5bt"]
+
+[ext_resource type="Texture2D" uid="uid://bfkf6qx8h4j42" path="res://levels/castle/assets/animated/candelabrum_small/candelabrum_small_1.png" id="1_jygy7"]
+[ext_resource type="Texture2D" uid="uid://ceqf1pumtrgvp" path="res://levels/castle/assets/animated/candelabrum_small/candelabrum_small_2.png" id="2_ger63"]
+[ext_resource type="Texture2D" uid="uid://cw7hlhqpvg46a" path="res://levels/castle/assets/animated/candelabrum_small/candelabrum_small_3.png" id="3_x8gwq"]
+[ext_resource type="Texture2D" uid="uid://q0xqhxoaw05v" path="res://levels/castle/assets/animated/candelabrum_small/candelabrum_small_4.png" id="4_bno1h"]
+[ext_resource type="Texture2D" uid="uid://cicpegwly4d6d" path="res://levels/castle/assets/animated/candelabrum_small/candelabrum_small_5.png" id="5_xeaar"]
+[ext_resource type="Texture2D" uid="uid://ekvgguied0c" path="res://levels/castle/assets/animated/candelabrum_small/candelabrum_small_6.png" id="6_hsnmd"]
+[ext_resource type="Texture2D" uid="uid://cxdltsanolorp" path="res://levels/castle/assets/animated/candelabrum_small/candelabrum_small_nofire.png" id="7_obuiq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_061rh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jygy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ger63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x8gwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bno1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xeaar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hsnmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_obuiq")
+}],
+"loop": true,
+"name": &"no-fire",
+"speed": 5.0
+}]
+
+[node name="CandelabrumSmall" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_061rh")
+frame_progress = 0.0269078

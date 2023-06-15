@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2x50n6y8fqwg"]
+
+[ext_resource type="Texture2D" uid="uid://cymiy8pkkdss1" path="res://levels/castle/assets/animated/lever_floor/lever_floor_1.png" id="1_d1qqt"]
+[ext_resource type="Texture2D" uid="uid://vkdhm01vsttv" path="res://levels/castle/assets/animated/lever_floor/lever_floor_2.png" id="2_vk61i"]
+[ext_resource type="Texture2D" uid="uid://j5ecnc06027j" path="res://levels/castle/assets/animated/lever_floor/lever_floor_3.png" id="3_b56ju"]
+[ext_resource type="Texture2D" uid="uid://lbjvvq6h7t5n" path="res://levels/castle/assets/animated/lever_floor/lever_floor_4.png" id="4_yici3"]
+[ext_resource type="Texture2D" uid="uid://ct3mmbeed1mpj" path="res://levels/castle/assets/animated/lever_floor/lever_floor_5.png" id="5_m1tof"]
+[ext_resource type="Texture2D" uid="uid://dr1govg17yk7p" path="res://levels/castle/assets/animated/lever_floor/lever_floor_6.png" id="6_yfsra"]
+[ext_resource type="Texture2D" uid="uid://6y0q5bludvis" path="res://levels/castle/assets/animated/lever_floor/lever_floor_7.png" id="7_52v5i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kyjod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d1qqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vk61i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b56ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yici3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m1tof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yfsra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_52v5i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="LeverFloor" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kyjod")

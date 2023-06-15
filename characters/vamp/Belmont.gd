@@ -201,5 +201,11 @@ func _on_animated_sprite_2d_finished():
 		$Timer.start()
 		animation_locked = false
 	
+
 func _on_timer_timeout():
 	recently_slid = false # Replace with function body.
+
+
+func _on_hitbox_area_entered(area):
+	# take damage
+	print("hit")

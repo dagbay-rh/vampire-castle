@@ -3,15 +3,24 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbd38dbuo4atj"
+<<<<<<<< Updated upstream:enemies/knight/_JumpFallInbetween.png.import
 path="res://.godot/imported/_JumpFallInbetween.png-b67e20e24c07331322d6f98304754347.ctex"
+========
+path="res://.godot/imported/_JumpFallInbetween.png-5ee1d1db1f1fdabe26ef756e254cb0c9.ctex"
+>>>>>>>> Stashed changes:enemies/knight/animations/_JumpFallInbetween.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< Updated upstream:enemies/knight/_JumpFallInbetween.png.import
 source_file="res://enemies/knight/_JumpFallInbetween.png"
 dest_files=["res://.godot/imported/_JumpFallInbetween.png-b67e20e24c07331322d6f98304754347.ctex"]
+========
+source_file="res://characters/enemies/knight/animations/_JumpFallInbetween.png"
+dest_files=["res://.godot/imported/_JumpFallInbetween.png-5ee1d1db1f1fdabe26ef756e254cb0c9.ctex"]
+>>>>>>>> Stashed changes:enemies/knight/animations/_JumpFallInbetween.png.import
 
 [params]
 

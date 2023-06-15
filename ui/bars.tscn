@@ -1,87 +1,44 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvrd2krlm0n21"]
+[gd_scene load_steps=8 format=3 uid="uid://dvrd2krlm0n21"]
 
 [ext_resource type="Script" path="res://ui/scripts/bars.gd" id="1_n8lg6"]
 [ext_resource type="Script" path="res://ui/Special.gd" id="2_64ul6"]
+[ext_resource type="Texture2D" uid="uid://5k67s5rnbxtt" path="res://art/ui/bar-progress.png" id="2_tlgic"]
+[ext_resource type="Texture2D" uid="uid://damq5mlg6g0i" path="res://art/ui/bar-over.png" id="3_j0owv"]
 
-[sub_resource type="Theme" id="Theme_3asb5"]
+[sub_resource type="Animation" id="Animation_fwgn4"]
+resource_name = "special_ready"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Special:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0509804, 0.372549, 1, 1), Color(0.945098, 0.737255, 0.384314, 1), Color(0.0509804, 0.372549, 1, 1)]
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5f4us"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0857"]
-bg_color = Color(0.65098, 0.152941, 0.160784, 1)
-border_color = Color(0.752941, 0.686275, 0.509804, 1)
-border_blend = true
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-
-[sub_resource type="Theme" id="Theme_ulnur"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2tpx6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjlqn"]
-bg_color = Color(0, 0.572549, 0.772549, 1)
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-
-[sub_resource type="Animation" id="Animation_2x1um"]
+[sub_resource type="Animation" id="Animation_kheau"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_styles/fill:bg_color")
+tracks/0/path = NodePath("Special:tint_progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0.572549, 0.772549, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:theme_override_styles/fill")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("StyleBoxFlat_gjlqn")]
+"values": [Color(0.0509804, 0.372549, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_wwjgj"]
-resource_name = "special_ready"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".:theme_override_styles/fill")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("StyleBoxFlat_gjlqn")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:theme_override_styles/fill:bg_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0.572549, 0.772549, 1), Color(0.811765, 0.752941, 0.14902, 1), Color(0, 0.572549, 0.772549, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqfo4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_67n0k"]
 _data = {
-"RESET": SubResource("Animation_2x1um"),
-"special_ready": SubResource("Animation_wwjgj")
+"RESET": SubResource("Animation_kheau"),
+"special_ready": SubResource("Animation_fwgn4")
 }
 
 [node name="Control" type="Control"]
@@ -93,34 +50,46 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n8lg6")
 
-[node name="Health" type="ProgressBar" parent="."]
+[node name="Health" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 8.0
-offset_right = 163.0
-offset_bottom = 25.0
-theme = SubResource("Theme_3asb5")
-theme_override_styles/background = SubResource("StyleBoxEmpty_5f4us")
-theme_override_styles/fill = SubResource("StyleBoxFlat_d0857")
-value = 100.0
-rounded = true
-show_percentage = false
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 131.0
+offset_bottom = 19.0
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("2_tlgic")
+texture_over = ExtResource("3_j0owv")
+texture_progress = ExtResource("2_tlgic")
+tint_under = Color(0.270588, 0.0588235, 0.00392157, 1)
+tint_over = Color(1, 0.788235, 0.403922, 1)
+tint_progress = Color(1, 0.0235294, 0, 1)
 
-[node name="Special" type="ProgressBar" parent="."]
+[node name="Special" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 25.0
-offset_right = 120.0
-offset_bottom = 34.0
-theme = SubResource("Theme_ulnur")
-theme_override_styles/background = SubResource("StyleBoxEmpty_2tpx6")
-theme_override_styles/fill = SubResource("StyleBoxFlat_gjlqn")
+offset_left = 4.0
+offset_top = 19.0
+offset_right = 96.0
+offset_bottom = 31.0
 value = 100.0
-show_percentage = false
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("2_tlgic")
+texture_over = ExtResource("3_j0owv")
+texture_progress = ExtResource("2_tlgic")
+tint_under = Color(0.0705882, 0, 0.419608, 1)
+tint_over = Color(1, 0.788235, 0.403922, 1)
+tint_progress = Color(0.0509804, 0.372549, 1, 1)
 script = ExtResource("2_64ul6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Special")
 libraries = {
-"": SubResource("AnimationLibrary_gqfo4")
+"": SubResource("AnimationLibrary_67n0k")
 }

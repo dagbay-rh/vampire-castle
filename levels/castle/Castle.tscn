@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bu3enmdjyjpuk"]
+[gd_scene load_steps=27 format=3 uid="uid://bu3enmdjyjpuk"]
 
 [ext_resource type="Script" path="res://levels/castle/Castle.gd" id="1_254jp"]
 [ext_resource type="Texture2D" uid="uid://u4gtxbrhxqlv" path="res://levels/castle/tiles/brick.png" id="1_b4mmo"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cx0oylne6rssa" path="res://levels/castle/tiles/bounds.png" id="2_fucuq"]
 [ext_resource type="Texture2D" uid="uid://cw4g5trckl03v" path="res://levels/castle/assets/coffin.png" id="3_utuv6"]
 [ext_resource type="Texture2D" uid="uid://jp31208vfc4h" path="res://levels/castle/tiles/blank.png" id="4_etm7q"]
-[ext_resource type="PackedScene" uid="uid://cdtgjds8pl5s" path="res://characters/monsters/generic/Generic.tscn" id="5_k0rj4"]
 [ext_resource type="Texture2D" uid="uid://c2ari8ttk3mog" path="res://levels/castle/tiles/platform.png" id="5_pt1ba"]
 [ext_resource type="Texture2D" uid="uid://cspf1npq3f75h" path="res://levels/castle/tiles/spikes.png" id="6_68h61"]
 [ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="6_lipeg"]
@@ -14,8 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b7hteudc616qo" path="res://levels/castle/tiles/wall.png" id="8_pp3if"]
 [ext_resource type="Texture2D" uid="uid://bcqwg1cppefc1" path="res://levels/castle/tiles/arch.png" id="9_a2n1x"]
 [ext_resource type="Texture2D" uid="uid://bax51selfivtj" path="res://levels/castle/tiles/column.png" id="10_hhjed"]
-[ext_resource type="Script" path="res://enemies/knight/Knight.gd" id="15_rx3yt"]
-[ext_resource type="Texture2D" uid="uid://dqmqktcmn4n4l" path="res://enemies/knight/_Attack2.png" id="16_mml4f"]
+[ext_resource type="PackedScene" uid="uid://cyu0hwnh66osu" path="res://enemies/knight/Knight.tscn" id="13_infd1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_of1by"]
 texture = ExtResource("5_pt1ba")
@@ -811,48 +809,6 @@ sources/7 = SubResource("TileSetAtlasSource_5e612")
 sources/8 = SubResource("TileSetAtlasSource_6k7ab")
 sources/9 = SubResource("TileSetAtlasSource_pvkjb")
 
-[sub_resource type="Animation" id="Animation_i5ilg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_ivi5y"]
-resource_name = "knight_idle"
-length = 0.6
-loop_mode = 2
-step = 0.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.0951538, 0.198545, 0.316805, 0.413365, 0.50884),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ytkw2"]
-_data = {
-"RESET": SubResource("Animation_i5ilg"),
-"knight_idle": SubResource("Animation_ivi5y")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqv2l"]
-size = Vector2(43, 35)
-
 [node name="Castle" type="Node2D"]
 script = ExtResource("1_254jp")
 
@@ -918,32 +874,14 @@ editor_draw_drag_margin = true
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="Knight" parent="Node2D" instance=ExtResource("13_infd1")]
+position = Vector2(-14, -111)
+collision_layer = 0
+collision_mask = 9
+
 [node name="Belmont" parent="Node2D" instance=ExtResource("6_lipeg")]
 position = Vector2(196, -81)
-collision_layer = 1
-collision_mask = 9
+collision_mask = 13
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/Belmont"]
 remote_path = NodePath("../../../Camera2D")
-
-[node name="Generic" parent="Node2D" instance=ExtResource("5_k0rj4")]
-position = Vector2(361, -73)
-
-[node name="Knight" type="CharacterBody2D" parent="Node2D"]
-position = Vector2(-28, -104)
-script = ExtResource("15_rx3yt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Knight"]
-autoplay = "knight_idle"
-libraries = {
-"": SubResource("AnimationLibrary_ytkw2")
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Knight"]
-position = Vector2(-37.5, 24.5)
-shape = SubResource("RectangleShape2D_mqv2l")
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Knight"]
-position = Vector2(-31, 3)
-texture = ExtResource("16_mml4f")
-hframes = 6

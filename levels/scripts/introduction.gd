@@ -2,6 +2,8 @@ extends Node
 
 var wait_time = 2.5
 
+@export var is_playable = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Label.visible_ratio = 0

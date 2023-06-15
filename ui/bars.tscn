@@ -5,21 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://5k67s5rnbxtt" path="res://art/ui/bar-progress.png" id="2_tlgic"]
 [ext_resource type="Texture2D" uid="uid://damq5mlg6g0i" path="res://art/ui/bar-over.png" id="3_j0owv"]
 
-[sub_resource type="Animation" id="Animation_fwgn4"]
-resource_name = "special_ready"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Special:tint_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.0509804, 0.372549, 1, 1), Color(0.945098, 0.737255, 0.384314, 1), Color(0.0509804, 0.372549, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_kheau"]
 length = 0.001
 tracks/0/type = "value"
@@ -35,6 +20,21 @@ tracks/0/keys = {
 "values": [Color(0.0509804, 0.372549, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_fwgn4"]
+resource_name = "special_ready"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Special:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0509804, 0.372549, 1, 1), Color(0.945098, 0.737255, 0.384314, 1), Color(0.0509804, 0.372549, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_67n0k"]
 _data = {
 "RESET": SubResource("Animation_kheau"),
@@ -48,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_n8lg6")
 
 [node name="Health" type="TextureProgressBar" parent="."]

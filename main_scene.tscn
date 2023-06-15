@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8oh0hyjf28iq"]
+[gd_scene load_steps=3 format=3 uid="uid://b8oh0hyjf28iq"]
 
+[ext_resource type="PackedScene" uid="uid://dvrd2krlm0n21" path="res://ui/bars.tscn" id="2_e15f4"]
 [ext_resource type="PackedScene" uid="uid://d0ds6ojwprtqh" path="res://ui/TitleScreenBackground.tscn" id="2_nm3ho"]
 
 [node name="MainScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Bars" parent="CanvasLayer" instance=ExtResource("2_e15f4")]
+offset_left = 21.0
+offset_top = 17.0
+offset_right = 21.0
+offset_bottom = 17.0
 
 [node name="TitleScreenBackground" parent="." instance=ExtResource("2_nm3ho")]

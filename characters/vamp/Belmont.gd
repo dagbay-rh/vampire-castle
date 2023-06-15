@@ -206,6 +206,6 @@ func _on_timer_timeout():
 	recently_slid = false # Replace with function body.
 
 
-func _on_hitbox_area_entered(area):
+func _on_hitbox_area_entered(_area):
 	# take damage
 	print("hit")

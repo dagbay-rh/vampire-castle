@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://cy37dfssjmopg"]
+[gd_scene load_steps=94 format=3 uid="uid://cy37dfssjmopg"]
 
 [ext_resource type="Script" path="res://characters/vamp/Belmont.gd" id="1_moofs"]
 [ext_resource type="Texture2D" uid="uid://dre34cibdt21k" path="res://characters/vamp/bats.png" id="2_dhgp4"]
@@ -685,15 +685,10 @@ animations = [{
 radius = 8.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oold5"]
-radius = 8.0
-height = 22.0
+radius = 7.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7mpod"]
-radius = 51.0882
-
-[node name="Belmont" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 5
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 9
 floor_stop_on_slope = false
 floor_max_angle = 1.16239
 script = ExtResource("1_moofs")
@@ -709,31 +704,11 @@ autoplay = "default"
 position = Vector2(0, 2.5)
 shape = SubResource("CapsuleShape2D_14eh3")
 
-[node name="Hurtbox" type="Area2D" parent="."]
-position = Vector2(17, 3)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+position = Vector2(15, 2.5)
 shape = SubResource("CapsuleShape2D_oold5")
-
-[node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(0, 2)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CapsuleShape2D_oold5")
-
-[node name="Trigger" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
-shape = SubResource("CircleShape2D_7mpod")
 
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_finished"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

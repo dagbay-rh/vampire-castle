@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ari8ttk3mog" path="res://levels/castle/tiles/platform.png" id="5_pt1ba"]
 [ext_resource type="Texture2D" uid="uid://cspf1npq3f75h" path="res://levels/castle/tiles/spikes.png" id="6_68h61"]
 [ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="6_lipeg"]
-[ext_resource type="Texture2D" uid="uid://d4jn5rcpdxc2t" path="res://levels/castle/tiles/windows.png" id="7_7t6uy"]
+[ext_resource type="Texture2D" uid="uid://p1hqb512ef5l" path="res://levels/castle/tiles/windows.png" id="7_7t6uy"]
 [ext_resource type="Texture2D" uid="uid://bjl6l7grkis50" path="res://levels/castle/tiles/stairs.png" id="7_ncjqo"]
 [ext_resource type="Texture2D" uid="uid://b7hteudc616qo" path="res://levels/castle/tiles/wall.png" id="8_pp3if"]
 [ext_resource type="Texture2D" uid="uid://bcqwg1cppefc1" path="res://levels/castle/tiles/arch.png" id="9_a2n1x"]
@@ -899,6 +899,7 @@ pattern_1 = SubResource("TileMapPattern_3erx1")
 
 [node name="Castle" type="Node2D"]
 script = ExtResource("1_254jp")
+is_playable = true
 level_theme = ExtResource("2_cqqb3")
 
 [node name="TileMapAssets" type="TileMap" parent="."]

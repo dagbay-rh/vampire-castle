@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=83 format=3 uid="uid://bsitncy6lsg8r"]
+[gd_resource type="TileSet" load_steps=83 format=3 uid="uid://crwatwuhu4jqi"]
 
 [ext_resource type="Texture2D" uid="uid://c8ns8w8gewjy2" path="res://levels/castle/assets/axe.png" id="1_b18tp"]
 [ext_resource type="Texture2D" uid="uid://u65nsj1rgq7o" path="res://levels/castle/assets/bag_1.png" id="2_4hpxp"]

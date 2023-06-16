@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cyu0hwnh66osu"]
+[gd_scene load_steps=46 format=3 uid="uid://dhtfgpb51rdaa"]
 
 [ext_resource type="Script" path="res://enemies/knight/knight.gd" id="1_72ke6"]
 [ext_resource type="Texture2D" uid="uid://crwh8qeesf3oc" path="res://enemies/knight/_AttackNoMovement.png" id="2_lb10o"]
@@ -289,7 +289,7 @@ script = ExtResource("1_72ke6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-21, 3)
 sprite_frames = SubResource("SpriteFrames_k47kk")
-animation = &"attack"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-25.5, 24.5)

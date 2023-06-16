@@ -181,10 +181,8 @@ func slide():
 		
 func attack():
 	var random_anim = randi() % len(attack_anims)
-	print_debug(random_anim)
 	direction.x = 0
 	movement_locked = true
-	print_debug(attack_anims[random_anim])
 	animated_sprite.play(attack_anims[random_anim])
 	animation_locked = true
 	

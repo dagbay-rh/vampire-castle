@@ -8,12 +8,16 @@ extends Control
 func _ready():
 	special.connect("max_reached", _on_special_max_reached)
 	PlayerState.connect("hurt", _on_player_take_damage)
+	PlayerState.connect("increase_special", _on_increase_special)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func _on_increase_special():
+	special.value += 10
 
 func _on_special_max_reached(_value):
 	animation_player.play("special_ready")

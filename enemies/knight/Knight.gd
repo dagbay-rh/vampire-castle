@@ -37,9 +37,11 @@ func _physics_process(delta):
 			
 		velocity = position.direction_to(player.position) * speed
 		
+		var dis_x = abs(distance.x)
 		if attacking:
 			velocity.x = 0
-		elif distance.x < 15.0:
+		elif dis_x < 60.0:
+			print(dis_x)
 			velocity.x = 0
 			attack()
 			
@@ -68,8 +70,7 @@ func _on_stop_area_exited(_area):
 		sprite.animation = "default"
 	
 func _on_attack_timer_timeout():
-	if active and not dead:
-		attack()
+	attacking = false
 
 func _on_hitbox_area_entered(_area):
 	# player takes damage

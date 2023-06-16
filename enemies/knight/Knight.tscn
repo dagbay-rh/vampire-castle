@@ -1,10 +1,10 @@
 [gd_scene load_steps=46 format=3 uid="uid://dhtfgpb51rdaa"]
 
 [ext_resource type="Script" path="res://enemies/knight/knight.gd" id="1_72ke6"]
-[ext_resource type="Texture2D" uid="uid://crwh8qeesf3oc" path="res://enemies/knight/_AttackNoMovement.png" id="2_lb10o"]
-[ext_resource type="Texture2D" uid="uid://bruxv3o0mty2f" path="res://enemies/knight/_Death.png" id="3_4ftpx"]
-[ext_resource type="Texture2D" uid="uid://behlhbc8o3c1d" path="res://enemies/knight/_Idle.png" id="4_kdqcp"]
-[ext_resource type="Texture2D" uid="uid://d4ivg58aasqbo" path="res://enemies/knight/_Run.png" id="5_a2j2a"]
+[ext_resource type="Texture2D" uid="uid://b2ehljjbqgdw4" path="res://enemies/knight/_AttackNoMovement.png" id="2_lb10o"]
+[ext_resource type="Texture2D" uid="uid://0p3xoxjfy3dt" path="res://enemies/knight/_Death.png" id="3_4ftpx"]
+[ext_resource type="Texture2D" uid="uid://ckab8duwatflp" path="res://enemies/knight/_Idle.png" id="4_kdqcp"]
+[ext_resource type="Texture2D" uid="uid://d11squ3xdwq0j" path="res://enemies/knight/_Run.png" id="5_a2j2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bt3t"]
 atlas = ExtResource("2_lb10o")
@@ -285,6 +285,7 @@ size = Vector2(685, 246)
 position = Vector2(11, -43)
 collision_layer = 9
 script = ExtResource("1_72ke6")
+hit_points = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-21, 3)

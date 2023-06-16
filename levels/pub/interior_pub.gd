@@ -14,5 +14,5 @@ func _process(_delta):
 	pass
 
 func _on_animation_player_animation_finished(anim_name):
-	SceneSwitch.switch_scene("res://levels/castle/Castle.tscn")
+	SceneSwitch.switch_scene("res://levels/jail/Jail.tscn")
 

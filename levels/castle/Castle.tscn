@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://bu3enmdjyjpuk"]
+[gd_scene load_steps=35 format=3 uid="uid://bu3enmdjyjpuk"]
 
 [ext_resource type="Script" path="res://levels/castle/Castle.gd" id="1_254jp"]
 [ext_resource type="Texture2D" uid="uid://u4gtxbrhxqlv" path="res://levels/castle/tiles/brick.png" id="1_b4mmo"]
 [ext_resource type="Texture2D" uid="uid://cibjp1weo8xp5" path="res://levels/castle/tiles/lion_column.png" id="2_ar01t"]
+[ext_resource type="AudioStream" uid="uid://dqtbbyoduufip" path="res://art/music/01 - DavidKBD - Belmont Chronicles Pack - Belmont Chronicles.ogg" id="2_cqqb3"]
 [ext_resource type="Texture2D" uid="uid://cx0oylne6rssa" path="res://levels/castle/tiles/bounds.png" id="2_fucuq"]
 [ext_resource type="TileSet" uid="uid://bsitncy6lsg8r" path="res://levels/castle/assets/castle_items_set.tres" id="2_kj2ns"]
 [ext_resource type="Texture2D" uid="uid://cw4g5trckl03v" path="res://levels/castle/assets/coffin.png" id="3_utuv6"]
@@ -10,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ari8ttk3mog" path="res://levels/castle/tiles/platform.png" id="5_pt1ba"]
 [ext_resource type="Texture2D" uid="uid://cspf1npq3f75h" path="res://levels/castle/tiles/spikes.png" id="6_68h61"]
 [ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="6_lipeg"]
-[ext_resource type="Texture2D" uid="uid://bhggcke68vm3k" path="res://levels/castle/tiles/windows.png" id="7_7t6uy"]
+[ext_resource type="Texture2D" uid="uid://p1hqb512ef5l" path="res://levels/castle/tiles/windows.png" id="7_7t6uy"]
 [ext_resource type="Texture2D" uid="uid://bjl6l7grkis50" path="res://levels/castle/tiles/stairs.png" id="7_ncjqo"]
 [ext_resource type="Texture2D" uid="uid://b7hteudc616qo" path="res://levels/castle/tiles/wall.png" id="8_pp3if"]
 [ext_resource type="Texture2D" uid="uid://bcqwg1cppefc1" path="res://levels/castle/tiles/arch.png" id="9_a2n1x"]
@@ -895,6 +896,7 @@ pattern_1 = SubResource("TileMapPattern_3erx1")
 
 [node name="Castle" type="Node2D"]
 script = ExtResource("1_254jp")
+level_theme = ExtResource("2_cqqb3")
 
 [node name="TileMapAssets" type="TileMap" parent="."]
 position = Vector2(-2, -1)

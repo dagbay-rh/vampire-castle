@@ -1,7 +1,4 @@
-extends Node2D
-
-@export var is_playable = true
-@export var level_theme : AudioStream = null
+extends Level
 
 func _on_area_2d_body_entered(body):
 	print(body.name + " entered sewer transition area")

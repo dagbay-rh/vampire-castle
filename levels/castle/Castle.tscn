@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=30 format=3 uid="uid://bu3enmdjyjpuk"]
-=======
 [gd_scene load_steps=35 format=3 uid="uid://bu3enmdjyjpuk"]
->>>>>>> a639ce8f53fd1fafc3a89cc6249437ffcbfdf3c6
 
 [ext_resource type="Script" path="res://levels/castle/Castle.gd" id="1_254jp"]
 [ext_resource type="Texture2D" uid="uid://u4gtxbrhxqlv" path="res://levels/castle/tiles/brick.png" id="1_b4mmo"]
@@ -20,16 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://b7hteudc616qo" path="res://levels/castle/tiles/wall.png" id="8_pp3if"]
 [ext_resource type="Texture2D" uid="uid://bcqwg1cppefc1" path="res://levels/castle/tiles/arch.png" id="9_a2n1x"]
 [ext_resource type="Texture2D" uid="uid://bax51selfivtj" path="res://levels/castle/tiles/column.png" id="10_hhjed"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://dhtfgpb51rdaa" path="res://enemies/knight/Knight.tscn" id="13_infd1"]
 [ext_resource type="PackedScene" uid="uid://c55qekd1y2d7n" path="res://villager_man.tscn" id="15_cbldx"]
 [ext_resource type="PackedScene" uid="uid://dtbav2egf022h" path="res://projectile.tscn" id="16_x1au5"]
 [ext_resource type="Script" path="res://projectile.gd" id="17_va28t"]
-=======
 [ext_resource type="PackedScene" uid="uid://cyu0hwnh66osu" path="res://enemies/knight/Knight.tscn" id="13_infd1"]
 [ext_resource type="PackedScene" uid="uid://d2x2qnqr4lvj2" path="res://levels/castle/assets/animated/chest.tscn" id="17_rma48"]
 [ext_resource type="PackedScene" uid="uid://bkvlkxw7hv6d2" path="res://levels/castle/assets/animated/candle_1.tscn" id="18_ck222"]
->>>>>>> a639ce8f53fd1fafc3a89cc6249437ffcbfdf3c6
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_of1by"]
 texture = ExtResource("5_pt1ba")
@@ -991,14 +984,12 @@ collision_mask = 13
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Characters/Belmont"]
 remote_path = NodePath("../../../Camera2D")
 
-<<<<<<< HEAD
 [node name="VillagerMan" parent="Node2D" instance=ExtResource("15_cbldx")]
 position = Vector2(1462, 395)
 
 [node name="Projectile" parent="Node2D" instance=ExtResource("16_x1au5")]
 position = Vector2(1464, 406)
 script = ExtResource("17_va28t")
-=======
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Chest" parent="Objects" instance=ExtResource("17_rma48")]
@@ -1006,4 +997,3 @@ position = Vector2(1251, 214)
 
 [node name="Candle1" parent="Objects" instance=ExtResource("18_ck222")]
 position = Vector2(618, -30)
->>>>>>> a639ce8f53fd1fafc3a89cc6249437ffcbfdf3c6

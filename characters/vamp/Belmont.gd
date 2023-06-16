@@ -25,6 +25,9 @@ var recently_slid : bool = false
 var input : Dictionary = {}
 var direction : Vector2 = Vector2.ZERO
 
+# knockback
+var knockback : Vector2 = Vector2(0, 0)
+var knockbackTween
 
 func _ready():
 	PlayerState.set_player_node(str(self.get_path()))
@@ -104,7 +107,7 @@ func physics_process_vampire(delta):
 			animated_sprite.emit_signal("animation_finished")
 
 	if direction:
-		velocity.x = direction.x * speed_vampire
+		velocity.x = direction.x * speed_vampire + knockback.x
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
@@ -210,5 +213,9 @@ func _on_timer_timeout():
 
 
 func _on_hitbox_area_entered(_area):
+	if direction.x > 0:
+		knockback = Vector2(-350, 0)
+	if direction.x < 0:
+		knockback = Vector2(350, 0)
 	# take damage
 	print("hit")

@@ -24,7 +24,7 @@ func _deferred_switch_scene(res_path):
 	mainScene.add_child(current_scene)
 	if current_scene.is_playable and ui != null:
 		ui.visible = true
-	else:
+	elif ui != null:
 		ui.visible = false
 	SceneSwitch.current_scene = current_scene
 		

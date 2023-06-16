@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dmsoau3kdah3e"]
 
-[ext_resource type="Texture2D" uid="uid://dcnehlpex0nca" path="res://art/interiors/Assets_City.png" id="1_i75lb"]
+[ext_resource type="Texture2D" uid="uid://du6cbg072at0a" path="res://art/interiors/Assets_City.png" id="1_i75lb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xajtf"]
 resource_name = "sewer"
@@ -226,12 +226,15 @@ texture = ExtResource("1_i75lb")
 2:4/0 = 0
 2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:4/0/physics_layer_0/angular_velocity = 0.0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:4/0 = 0
 3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:4/0/physics_layer_0/angular_velocity = 0.0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
 4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:4/0/physics_layer_0/angular_velocity = 0.0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:4/0 = 0
 5:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:4/0/physics_layer_0/angular_velocity = 0.0

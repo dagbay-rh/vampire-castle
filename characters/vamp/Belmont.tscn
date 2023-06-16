@@ -719,7 +719,7 @@ shape = SubResource("CapsuleShape2D_oold5")
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, 2)
 collision_layer = 0
-collision_mask = 4
+collision_mask = 68
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_oold5")

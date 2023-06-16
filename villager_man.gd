@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
-@onready var player = get_parent().get_node("Belmont")
+@onready var player = get_parent().get_node("Characters").get_node("Belmont")
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var fireinstance = get_parent().get_node("Fireball")
+var fire = preload("res://fireball.tscn")
+var exists = false
+
 # @onready var timer : Timer = $AttackTimer
 # @onready var hitbox : Area2D = $Hitbox
 
@@ -27,6 +31,20 @@ func _physics_process(delta):
 	if active and player:
 		var distance = player.position - self.position
 		var player_direction = distance.normalized()
+		if exists: 
+			if fireinstance: 
+				var fireball_distance = player.position - fireinstance.position
+				if fireball_distance.y == 0:
+					exists = false
+			else:
+				exists = false
+		# var fireball = ENERGYBALL.instance()
+		# get_tree().current_scene.add_child(fireball)
+		if not exists: 
+			var instance = fire.instantiate()
+			add_child(instance)
+			print("added")
+			exists = true
 		
 		if player_direction.x <= 0:
 			sprite.flip_h = true

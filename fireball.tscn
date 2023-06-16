@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwdc6gcxdtst6"]
+
+[ext_resource type="Texture2D" uid="uid://fdxct2b15ia6" path="res://items/projectiles/flame1.png" id="1_m570j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3u8j"]
+
+[node name="Fireball" type="CharacterBody2D"]
+position = Vector2(49, -15)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(0.425, 0.55)
+texture = ExtResource("1_m570j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x3u8j")

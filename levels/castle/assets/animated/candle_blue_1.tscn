@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdmcuj4ksjo6l"]
+
+[ext_resource type="Texture2D" uid="uid://p1a1txap0b6h" path="res://levels/castle/assets/animated/candle_blue_1/candle_blue_1_1.png" id="1_4um8q"]
+[ext_resource type="Texture2D" uid="uid://dhux0jwd40qpn" path="res://levels/castle/assets/animated/candle_blue_1/candle_blue_1_2.png" id="2_oggi1"]
+[ext_resource type="Texture2D" uid="uid://d175pk4s3aaje" path="res://levels/castle/assets/animated/candle_blue_1/candle_blue_1_3.png" id="3_a8u3g"]
+[ext_resource type="Texture2D" uid="uid://dq6h7sq11em6x" path="res://levels/castle/assets/animated/candle_blue_1/candle_blue_1_4.png" id="4_6f5h6"]
+[ext_resource type="Texture2D" uid="uid://bir73ili0mvyd" path="res://levels/castle/assets/animated/candle_blue_1/candle_blue_1_5.png" id="5_dv3b0"]
+[ext_resource type="Texture2D" uid="uid://bug6ntq31nvab" path="res://levels/castle/assets/animated/candle_blue_1/candle_blue_1_6.png" id="6_3qh6m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fut4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4um8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oggi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a8u3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6f5h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dv3b0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3qh6m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="CandleBlue1" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_fut4m")

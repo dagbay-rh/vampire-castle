@@ -15,8 +15,8 @@ func _input(event):
 		print("throwing!")
 		if get_parent().get_node("VillagerMan").sprite.flip_h == false:
 			print("in if")
-			apply_impulse(Vector2(), Vector2(150, -200))
+			apply_force(Vector2(), Vector2(150, -200))
 		else:
 			print("in else")
-			apply_impulse(Vector2(), Vector2(-150, -200))
+			apply_force(Vector2(), Vector2(-150, -200))
 		thrown = true

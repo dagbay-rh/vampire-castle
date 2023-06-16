@@ -14,7 +14,5 @@ func _process(_delta):
 	pass
 
 func _on_animation_player_animation_finished(anim_name):
-	var castle_theme : AudioStream = load("res://art/music/01 - DavidKBD - Belmont Chronicles Pack - Belmont Chronicles.ogg")
-	await MusicPlayer.change_music_fade(castle_theme)
 	SceneSwitch.switch_scene("res://levels/castle/Castle.tscn")
 

@@ -20,6 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animation_locked : bool = false
 var is_bat : bool = false
 var recently_slid : bool = false
+var movement_locked : bool = false
 
 # inputs
 var input : Dictionary = {}
@@ -29,7 +30,14 @@ var direction : Vector2 = Vector2.ZERO
 var knockback : Vector2 = Vector2(0, 0)
 var knockbackTween
 
+var attack_anims : Array = [
+	"upward_slash",
+	"downward_slash",
+	"side_slash",
+]
+
 func _ready():
+	randomize()
 	PlayerState.set_player_node(str(self.get_path()))
 
 # All iputs we want to keep track of
@@ -57,9 +65,15 @@ func get_input():
 		"slide": Input.is_action_pressed("slide"),
 		"just_slide": Input.is_action_just_pressed("slide"),
 		"released_slide": Input.is_action_just_released("slide"),
+		
+		#attack
+		"attack": Input.is_action_pressed("attack"),
+		"just_attack": Input.is_action_just_pressed("attack"),
+		"released_attack": Input.is_action_just_released("attack"),
 	}
 	
-	direction = input["direction"]
+	if movement_locked == false:
+		direction = input["direction"]
 
 
 func _physics_process(delta):
@@ -95,6 +109,9 @@ func physics_process_vampire(delta):
 		
 	if input["just_slide"] and is_on_floor() and recently_slid == false:
 		slide()
+		
+	if input["just_attack"] and is_on_floor():
+		attack()
 		
 	if input["released_slide"]:
 		if animated_sprite.animation == "slide":
@@ -161,6 +178,16 @@ func slide():
 		update_collision_shape()
 		animated_sprite.play("slide")
 		animation_locked = true
+		
+func attack():
+	var random_anim = randi() % len(attack_anims)
+	print_debug(random_anim)
+	direction.x = 0
+	movement_locked = true
+	print_debug(attack_anims[random_anim])
+	animated_sprite.play(attack_anims[random_anim])
+	animation_locked = true
+	
 
 
 func bat_transform():
@@ -200,6 +227,9 @@ func _on_animated_sprite_2d_finished():
 	if(animated_sprite.animation == "crouch"):
 		reset_collision_shape()
 		animation_locked = false
+	if(animated_sprite.animation in ["upward_slash", "downward_slash", "side_slash"]):
+		animation_locked = false
+		movement_locked = false
 	if(animated_sprite.animation == "slide"):
 		reset_collision_shape()
 		recently_slid = true

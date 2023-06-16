@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var pause_input : bool = false
 
 @export var speed_vampire : float = 200.0
 @export var jump_velocity : float = -400.0
@@ -59,6 +60,9 @@ func get_input():
 
 
 func _physics_process(delta):
+	if pause_input:
+		return
+	
 	get_input()
 	
 	if is_bat:

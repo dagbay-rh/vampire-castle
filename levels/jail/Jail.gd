@@ -12,4 +12,4 @@ func _on_area_2d_body_entered(body):
 			var this_scene = get_node(".")
 			SceneSwitch.current_scene = this_scene
 		
-		SceneSwitch.switch_scene("res://levels/castle/Castle.tscn")
+		SceneSwitch.switch_scene("res://levels/sewer/Sewer.tscn")

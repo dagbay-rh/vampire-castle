@@ -18818,21 +18818,6 @@ size = Vector2(43.0002, 39)
 [sub_resource type="LabelSettings" id="LabelSettings_yrhd7"]
 font_size = 10
 
-[sub_resource type="Animation" id="Animation_03sd7"]
-resource_name = "show_text"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
 [sub_resource type="Animation" id="Animation_7jbmv"]
 resource_name = "fade_scene"
 tracks/0/type = "value"
@@ -18848,6 +18833,21 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_03sd7"]
+resource_name = "show_text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r0vgf"]
 _data = {
 "fade_scene": SubResource("Animation_7jbmv"),
@@ -18861,7 +18861,7 @@ is_playable = true
 level_theme = ExtResource("2_uh74q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(193.048, 308)
+position = Vector2(207.048, 377)
 zoom = Vector2(3, 3)
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -18893,11 +18893,11 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-65362, 851972, 5, -65360, 851972, 5, -65359, 851972, 5, -393042, 65541, 5, -393039, 65541, 5, -196433, 4, 26, -196432, 983044, 0, 196783, 1048580, 0, 196784, 1114116, 0, 196785, 1048580, 0, 196786, 1114116, 0, 196781, 1048580, 0, 196782, 1114116, 0, 196778, 1245188, 2, 196777, 1245188, 2, 160, 917508, 5, 65696, 917508, 6, 166, 917508, 5, 65702, 917508, 6, -655186, 917508, 6, -655184, 917508, 6, 178, 851972, 5, 65714, 851972, 5)
 
 [node name="Belmont" parent="." instance=ExtResource("9_we130")]
-position = Vector2(193.048, 383)
+position = Vector2(207.048, 380)
 collision_mask = 13
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Belmont"]
-position = Vector2(0, -75)
+position = Vector2(0, -3)
 remote_path = NodePath("../../Camera2D")
 
 [node name="Area2D" type="Area2D" parent="."]

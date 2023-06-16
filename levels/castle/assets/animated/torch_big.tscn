@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhkskwpx82yiq"]
+
+[ext_resource type="Texture2D" uid="uid://d4eprbcdi6bfc" path="res://levels/castle/assets/animated/torch_big/torch_big_1.png" id="1_gwnbq"]
+[ext_resource type="Texture2D" uid="uid://eujwh70m712v" path="res://levels/castle/assets/animated/torch_big/torch_big_2.png" id="2_ouw6m"]
+[ext_resource type="Texture2D" uid="uid://bf27gwffseo85" path="res://levels/castle/assets/animated/torch_big/torch_big_3.png" id="3_x236f"]
+[ext_resource type="Texture2D" uid="uid://k3pg47l1unxe" path="res://levels/castle/assets/animated/torch_big/torch_big_4.png" id="4_vdt4j"]
+[ext_resource type="Texture2D" uid="uid://bluih0qjh1xnc" path="res://levels/castle/assets/animated/torch_big/torch_big_5.png" id="5_jjgvv"]
+[ext_resource type="Texture2D" uid="uid://dghgjkxhejv1e" path="res://levels/castle/assets/animated/torch_big/torch_big_6.png" id="6_cbyda"]
+[ext_resource type="Texture2D" uid="uid://k3ow74d4cv3c" path="res://levels/castle/assets/animated/torch_big/torch_big_background.png" id="7_4wf1t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cpk3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gwnbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ouw6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x236f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vdt4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jjgvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cbyda")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TorchBig" type="AnimatedSprite2D"]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_4cpk3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -21.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = 33.0
+texture = ExtResource("7_4wf1t")

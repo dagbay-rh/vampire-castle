@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cn024bc2w305g"]
+
+[ext_resource type="Texture2D" uid="uid://dno3dhhuhdrov" path="res://levels/castle/assets/animated/lever_wall/lever_wall_1.png" id="1_p52eh"]
+[ext_resource type="Texture2D" uid="uid://bewirwumgjfaa" path="res://levels/castle/assets/animated/lever_wall/lever_wall_2.png" id="2_7680l"]
+[ext_resource type="Texture2D" uid="uid://dobnjyjsr1nxe" path="res://levels/castle/assets/animated/lever_wall/lever_wall_3.png" id="3_5fy0b"]
+[ext_resource type="Texture2D" uid="uid://d340wo4np6gsb" path="res://levels/castle/assets/animated/lever_wall/lever_wall_4.png" id="4_fqd5a"]
+[ext_resource type="Texture2D" uid="uid://c43yieeafhwfc" path="res://levels/castle/assets/animated/lever_wall/lever_wall_5.png" id="5_b0nmt"]
+[ext_resource type="Texture2D" uid="uid://b8t01cayeni5k" path="res://levels/castle/assets/animated/lever_wall/lever_wall_6.png" id="6_psgyw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7hew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p52eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7680l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5fy0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fqd5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b0nmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_psgyw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="LeverWall" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_h7hew")

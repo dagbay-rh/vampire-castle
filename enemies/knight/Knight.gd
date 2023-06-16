@@ -22,12 +22,13 @@ func _physics_process(delta):
 		var distance = player.position - self.position
 		var player_direction = distance.normalized()
 		
-		if player_direction.x <= 0:
-			sprite.flip_h = true
-			hitbox.transform.origin = Vector2(-55.0, 20.0)
-		if player_direction.x > 0:
-			sprite.flip_h = false
-			hitbox.transform.origin = Vector2(2.0, 20.0)
+		if not attacking:
+			if player_direction.x <= 0:
+				sprite.flip_h = true
+				hitbox.transform.origin = Vector2(-55.0, 20.0)
+			if player_direction.x > 0:
+				sprite.flip_h = false
+				hitbox.transform.origin = Vector2(2.0, 20.0)
 			
 		velocity = position.direction_to(player.position) * speed
 		

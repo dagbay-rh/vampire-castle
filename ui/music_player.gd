@@ -28,3 +28,7 @@ func fade_music_out():
 	
 func fade_music_in():
 	music_fader.play_backwards("fade_music")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	bg_music.volume_db = 0

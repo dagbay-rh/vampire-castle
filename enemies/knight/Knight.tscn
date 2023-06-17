@@ -1,10 +1,13 @@
-[gd_scene load_steps=46 format=3 uid="uid://dhtfgpb51rdaa"]
+[gd_scene load_steps=45 format=3 uid="uid://dhtfgpb51rdaa"]
 
 [ext_resource type="Script" path="res://enemies/knight/knight.gd" id="1_72ke6"]
 [ext_resource type="Texture2D" uid="uid://b2ehljjbqgdw4" path="res://enemies/knight/_AttackNoMovement.png" id="2_lb10o"]
 [ext_resource type="Texture2D" uid="uid://0p3xoxjfy3dt" path="res://enemies/knight/_Death.png" id="3_4ftpx"]
 [ext_resource type="Texture2D" uid="uid://ckab8duwatflp" path="res://enemies/knight/_Idle.png" id="4_kdqcp"]
 [ext_resource type="Texture2D" uid="uid://d11squ3xdwq0j" path="res://enemies/knight/_Run.png" id="5_a2j2a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy1yj"]
+height = 35.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bt3t"]
 atlas = ExtResource("2_lb10o")
@@ -159,7 +162,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 3.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -194,7 +197,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -264,16 +267,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 4.0
+"speed": 10.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy1yj"]
-height = 35.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ct3w"]
 radius = 127.279
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vysdx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mslm8"]
 radius = 21.0
@@ -282,19 +280,20 @@ radius = 21.0
 size = Vector2(685, 246)
 
 [node name="Knight" type="CharacterBody2D"]
-position = Vector2(11, -43)
+position = Vector2(24, -26)
 collision_layer = 9
 script = ExtResource("1_72ke6")
-hit_points = null
+
+[node name="KnightBody" type="CollisionShape2D" parent="."]
+position = Vector2(-25.5, 24.5)
+shape = SubResource("CapsuleShape2D_wy1yj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-21, 3)
 sprite_frames = SubResource("SpriteFrames_k47kk")
 animation = &"run"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-25.5, 24.5)
-shape = SubResource("CapsuleShape2D_wy1yj")
+frame_progress = 0.679359
+flip_h = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 1.79
@@ -311,29 +310,30 @@ shape = SubResource("CircleShape2D_1ct3w")
 debug_color = Color(0.678431, 0.427451, 0.701961, 0.419608)
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(2, 20)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("RectangleShape2D_vysdx")
-debug_color = Color(0.431373, 0.352941, 0, 1)
-
-[node name="Hurtbox" type="Area2D" parent="."]
-position = Vector2(-10, 43)
-collision_layer = 0
+position = Vector2(9, 28)
+collision_layer = 20
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="EnemyBody" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-34.5, -3.5)
+shape = SubResource("CapsuleShape2D_wy1yj")
+
+[node name="AttackBox" type="Area2D" parent="."]
+position = Vector2(-35, 41)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 position = Vector2(-13, -17)
 shape = SubResource("CircleShape2D_mslm8")
 debug_color = Color(0.796078, 0.403922, 0.368627, 0.419608)
 
-[node name="Stop" type="Area2D" parent="."]
+[node name="ChaseRange" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stop"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseRange"]
 position = Vector2(-10.5, 30)
 shape = SubResource("RectangleShape2D_tfawh")
 
@@ -341,5 +341,5 @@ shape = SubResource("RectangleShape2D_tfawh")
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="area_entered" from="Trigger" to="." method="_on_trigger_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="Stop" to="." method="_on_stop_area_exited"]
+[connection signal="area_entered" from="AttackBox" to="." method="_on_attackbox_area_entered"]
+[connection signal="area_exited" from="ChaseRange" to="." method="_on_chase_range_area_exited"]

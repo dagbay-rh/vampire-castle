@@ -693,7 +693,7 @@ radius = 51.0882
 
 [node name="Belmont" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 7
 floor_stop_on_slope = false
 floor_max_angle = 1.16239
 script = ExtResource("1_moofs")
@@ -708,25 +708,25 @@ autoplay = "default"
 position = Vector2(0, 2.5)
 shape = SubResource("CapsuleShape2D_14eh3")
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="AttackBox" type="Area2D" parent="."]
 position = Vector2(17, 3)
 collision_layer = 16
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 shape = SubResource("CapsuleShape2D_oold5")
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, 2)
-collision_layer = 0
-collision_mask = 68
+collision_layer = 2
+collision_mask = 70
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CapsuleShape2D_oold5")
 
 [node name="Trigger" type="Area2D" parent="."]
 collision_layer = 32
-collision_mask = 0
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
 shape = SubResource("CircleShape2D_7mpod")

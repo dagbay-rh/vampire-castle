@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7og22afnwgqt"]
+[gd_scene load_steps=10 format=3 uid="uid://b7og22afnwgqt"]
 
 [ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="1_jnwag"]
 [ext_resource type="Script" path="res://levels/sewer/Sewer.gd" id="1_vbcp1"]
+[ext_resource type="AudioStream" uid="uid://p3cx8o25v71v" path="res://art/music/Vampires/Wasted Blood.mp3" id="2_tn4vx"]
 [ext_resource type="TileSet" uid="uid://dmsoau3kdah3e" path="res://art/interiors/Sewer.tres" id="2_ud738"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7gpy"]
@@ -49,6 +50,7 @@ _data = {
 [node name="Sewer" type="Node2D"]
 script = ExtResource("1_vbcp1")
 is_playable = true
+level_theme = ExtResource("2_tn4vx")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_ud738")

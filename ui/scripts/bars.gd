@@ -6,24 +6,21 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	special.connect("max_reached", _on_special_max_reached)
-	PlayerState.connect("hurt", _on_player_take_damage)
+	# change_health is triggered by player state
+	# using a signal in case bars are not available for the player state to read
+	PlayerState.connect("change_health", _on_change_health)
 	PlayerState.connect("increase_special", _on_increase_special)
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 	
 func _on_increase_special():
+	print_debug("special_increased")
 	special.value += 10
+	if special.value == special.max_value:
+		animation_player.play("special_ready")
 
-func _on_special_max_reached(_value):
-	animation_player.play("special_ready")
-
-func _on_player_take_damage(amount):
-	health.value = health.value - amount
-	# need to wire this up to death
-	if health.value <= 0:
-		print("game over, man")
+func _on_change_health(new_health):
+	health.value = new_health

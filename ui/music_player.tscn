@@ -50,3 +50,5 @@ stream = ExtResource("1_k45wa")
 libraries = {
 "": SubResource("AnimationLibrary_21qru")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

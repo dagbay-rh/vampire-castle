@@ -54,5 +54,6 @@ func increase_special():
 	emit_signal("increase_special")
 
 func game_over():
+	get_tree().paused = true
 	SceneSwitch.switch_scene("res://ui/dead.tscn")
 	

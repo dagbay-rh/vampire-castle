@@ -5,7 +5,6 @@ class_name Enemy
 # required for enemy to impact the play
 @onready var attackBox : Area2D = $AttackBox
 @onready var rid : int = get_rid().get_id()
-@onready var player = get_parent().get_node("Belmont")
 
 # configurable params per enemy
 @export var hit_points : int = 3

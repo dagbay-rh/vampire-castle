@@ -9,43 +9,48 @@ func _physics_process(delta):
 		set_physics_process(false)
 		return
 	
-	if engaged:
-		var distance = PlayerState.player_position - self.position
-		var player_direction = distance.normalized()
+	if not engaged:
+		return
+	
+	var distance = PlayerState.player_position - self.position
+	var player_direction = distance.normalized()
+	
+	if not attacking:
+		if player_direction.x <= 0:
+			animated_sprite.flip_h = true
+			attackBox.transform.origin = Vector2(-35.0, 41.0)
+		if player_direction.x > 0:
+			animated_sprite.flip_h = false
+			attackBox.transform.origin = Vector2(11.0, 38.0)
 		
-		if not attacking:
-			if player_direction.x <= 0:
-				animated_sprite.flip_h = true
-				attackBox.transform.origin = Vector2(-35.0, 41.0)
-			if player_direction.x > 0:
-				animated_sprite.flip_h = false
-				attackBox.transform.origin = Vector2(11.0, 38.0)
-			
-		velocity = position.direction_to(PlayerState.player_position) * speed
+	velocity = position.direction_to(PlayerState.player_position) * speed
+	
+	var dis_x = abs(distance.x)
+	if attacking:
+		velocity.x = 0
+	elif dis_x < 60.0 and not waiting:
+		velocity.x = 0
+		attack()
 		
-		var dis_x = abs(distance.x)
-		if attacking:
-			velocity.x = 0
-		elif dis_x < 60.0:
-			print(dis_x)
-			velocity.x = 0
-			attack()
-			
-		if not is_on_floor():
-			velocity.y += gravity * delta
-		else:
-			velocity.y = 0
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	else:
+		velocity.y = 0
 		
-		move_and_slide()
+	move_and_slide()
 
 func _on_trigger_area_entered(_area):
 	# whenever the player enters the area, attack mode
 	if engaged:
 		# ignore, already active
 		return
+		
+	if dead:
+		return # literally dead
 	PlayerState.engage_enemy(rid)
 	engaged = true
-	animated_sprite.play("run")
+	animated_sprite.animation = "run"
+	animated_sprite.play()
 
 func _on_chase_range_area_exited(_area):
 	engaged = false
@@ -53,39 +58,63 @@ func _on_chase_range_area_exited(_area):
 		queue_free()
 	else:
 		animated_sprite.animation = "default"
-	
-func _on_attack_timer_timeout():
-	attacking = false
+		animated_sprite.play()
 
 func _on_attackbox_area_entered(_area):
 	# attack power is derived from a property on the Enemy object
 	PlayerState.take_damage(attack_power)
 	print_debug("take" + str(attack_power) + "damage")
 
+func _on_attack_timer_timeout():
+	attacking = false
+	waiting = true
+	
+	animated_sprite.animation = "default"
+	animated_sprite.play()
+
+func _on_cooldown_timer_timeout():
+	waiting = false
+	attack()
+
 func _on_animated_animated_sprite_2d_animation_finished():
 	if dead:
 		return
 	
-	animated_sprite.play("run")
+	animated_sprite.animation = "run"
+	animated_sprite.play()
+	
 	attacking = false
 	
+	# start waiting
+	waiting = true
+	$CooldownTimer.start()
+	
 	attackBox.monitoring = false
+	attackBox.monitorable = false
 	attackBox.get_child(0).disabled = true
 
 func attack():
 	# attack and start timer
-	animated_sprite.play("attack")
+	animated_sprite.animation = "attack"
+	animated_sprite.play()
 	timer.start()
 	
 	attacking = true
 	attackBox.monitoring = true
+	attackBox.monitorable = true
 	attackBox.get_child(0).disabled = false
+	
+func inbetween_attacks():
+	pass
 	
 func death():
 	# call the enemy base class's death process to add to special and disengage
 	print_debug("enemy dead")
 	death_process()
-	animated_sprite.play("death")
+	
+	animated_sprite.animation = "death"
+	animated_sprite.play()
+	
 	remove_child(attackBox)
 	remove_collisions()
 	dead = true

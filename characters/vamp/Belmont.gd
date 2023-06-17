@@ -21,6 +21,7 @@ var animation_locked : bool = false
 var is_bat : bool = false
 var recently_slid : bool = false
 var movement_locked : bool = false
+var attacking : bool = false
 
 # inputs
 var input : Dictionary = {}
@@ -96,6 +97,9 @@ func physics_process_vampire(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		
+	if not attacking:
+		$AttackBox.get_child(0).disabled = true
 
 	# Handle Jump.
 	if input["just_jump"] and is_on_floor():
@@ -124,7 +128,8 @@ func physics_process_vampire(delta):
 			animated_sprite.emit_signal("animation_finished")
 
 	if direction:
-		velocity.x = direction.x * speed_vampire + knockback.x
+		#velocity.x = direction.x * speed_vampire + knockback.x
+		velocity.x = direction.x * speed_vampire
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
@@ -157,8 +162,10 @@ func update_animation():
 func update_facing_direction():
 	if direction.x > 0:
 		animated_sprite.flip_h = false
+		$AttackBox.position.x = 17
 	elif direction.x < 0:
 		animated_sprite.flip_h = true
+		$AttackBox.position.x = -17
 
 
 func jump():
@@ -180,12 +187,14 @@ func slide():
 		animation_locked = true
 		
 func attack():
+	attacking = true
 	var random_anim = randi() % len(attack_anims)
 	direction.x = 0
 	movement_locked = true
 	animated_sprite.play(attack_anims[random_anim])
+	$AttackBox.monitoring = true
 	animation_locked = true
-	
+	$AttackBox.get_child(0).disabled = false
 
 
 func bat_transform():
@@ -228,6 +237,7 @@ func _on_animated_sprite_2d_finished():
 	if(animated_sprite.animation in ["upward_slash", "downward_slash", "side_slash"]):
 		animation_locked = false
 		movement_locked = false
+		$AttackBox.get_child(0).disabled = true
 	if(animated_sprite.animation == "slide"):
 		reset_collision_shape()
 		recently_slid = true

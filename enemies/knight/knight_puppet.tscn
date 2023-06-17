@@ -1,9 +1,9 @@
 [gd_scene load_steps=44 format=3 uid="uid://o00tjkj0gifj"]
 
-[ext_resource type="Texture2D" uid="uid://dhp2o2bh4g0e3" path="res://enemies/knight/_Attack2NoMovement.png" id="1_n75hy"]
-[ext_resource type="Texture2D" uid="uid://ckab8duwatflp" path="res://enemies/knight/_Idle.png" id="2_kickg"]
-[ext_resource type="Texture2D" uid="uid://xihva4kpijyj" path="res://enemies/knight/_Roll.png" id="3_vlgpi"]
-[ext_resource type="Texture2D" uid="uid://d11squ3xdwq0j" path="res://enemies/knight/_Run.png" id="4_tmxi0"]
+[ext_resource type="Texture2D" uid="uid://u51f64e0wi6e" path="res://enemies/knight/animations/_Attack2NoMovement.png" id="1_n75hy"]
+[ext_resource type="Texture2D" uid="uid://f38vnhju170r" path="res://enemies/knight/animations/_Idle.png" id="2_kickg"]
+[ext_resource type="Texture2D" uid="uid://bqyq4h6ecn031" path="res://enemies/knight/animations/_Roll.png" id="3_vlgpi"]
+[ext_resource type="Texture2D" uid="uid://b5584codb7far" path="res://enemies/knight/animations/_Run.png" id="4_tmxi0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e0pl"]
 atlas = ExtResource("1_n75hy")

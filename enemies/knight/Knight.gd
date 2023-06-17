@@ -9,8 +9,8 @@ func _physics_process(delta):
 		set_physics_process(false)
 		return
 	
-	if engaged and player:
-		var distance = player.position - self.position
+	if engaged:
+		var distance = PlayerState.player_position - self.position
 		var player_direction = distance.normalized()
 		
 		if not attacking:
@@ -21,7 +21,7 @@ func _physics_process(delta):
 				animated_sprite.flip_h = false
 				attackBox.transform.origin = Vector2(11.0, 38.0)
 			
-		velocity = position.direction_to(player.position) * speed
+		velocity = position.direction_to(PlayerState.player_position) * speed
 		
 		var dis_x = abs(distance.x)
 		if attacking:

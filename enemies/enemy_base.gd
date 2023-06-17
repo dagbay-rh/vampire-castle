@@ -6,7 +6,6 @@ class_name Enemy
 @onready var attackBox : Area2D = $AttackBox
 @onready var hitBox : Area2D = $Hitbox
 @onready var rid : int = get_rid().get_id()
-@onready var player = get_parent().get_node("Belmont")
 
 # configurable params per enemy
 @export var hit_points : int = 3

@@ -54,4 +54,5 @@ func increase_special():
 	emit_signal("increase_special")
 
 func game_over():
-	print_debug("you dead")
+	SceneSwitch.switch_scene("res://ui/dead.tscn")
+	

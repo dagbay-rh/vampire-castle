@@ -4,7 +4,6 @@ class_name Enemy
 
 # required for enemy to impact the play
 @onready var attackBox : Area2D = $AttackBox
-@onready var hitBox : Area2D = $Hitbox
 @onready var rid : int = get_rid().get_id()
 @onready var player = get_parent().get_node("Belmont")
 
@@ -22,6 +21,16 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var dead : bool = false
 var engaged : bool = false
 var attacking : bool = false
+var waiting : bool = false
+
+
+enum DIRECTION {
+	LEFT,
+	RIGHT
+}
+
+var dir = DIRECTION.LEFT
+
 
 func _ready():
 	attackBox.monitoring = false
@@ -32,16 +41,14 @@ func death_process():
 	PlayerState.increase_special()
 	PlayerState.disengage_enemy(rid)
 
+
 func _on_hitbox_area_entered(_area):
 	if dead:
 		return
 	hit_points -= 1
 	if hit_points <= 0:
 		death()
-		
-func _on_attack_timer_timeout():
-	print_debug("called timeout")
-	attacking = false
+
 		
 func death():
 	# override this func with subclass death

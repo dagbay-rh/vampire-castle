@@ -274,7 +274,6 @@ animations = [{
 radius = 127.279
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mslm8"]
-radius = 21.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfawh"]
 size = Vector2(685, 246)
@@ -292,12 +291,14 @@ shape = SubResource("CapsuleShape2D_wy1yj")
 position = Vector2(-21, 3)
 sprite_frames = SubResource("SpriteFrames_k47kk")
 animation = &"run"
-frame_progress = 0.679359
 flip_h = true
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 1.79
+wait_time = 1.261
 one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.6
 
 [node name="Trigger" type="Area2D" parent="."]
 z_index = 1
@@ -324,7 +325,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
-position = Vector2(-13, -17)
+position = Vector2(-10, -15)
 shape = SubResource("CircleShape2D_mslm8")
 debug_color = Color(0.796078, 0.403922, 0.368627, 0.419608)
 
@@ -339,6 +340,7 @@ shape = SubResource("RectangleShape2D_tfawh")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="area_entered" from="Trigger" to="." method="_on_trigger_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="AttackBox" to="." method="_on_attackbox_area_entered"]

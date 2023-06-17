@@ -89,6 +89,8 @@ offset_bottom = -314.0
 text = "leaving sewer..."
 label_settings = SubResource("LabelSettings_ufcea")
 autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -22,7 +22,7 @@ func _on_label_ready():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_scene":
 		belmont.pause_input = false
-		SceneSwitch.switch_scene("res://levels/castle/Castle.tscn")
+		SceneSwitch.switch_scene("res://levels/village/Village.tscn")
 
 
 func _on_ready():

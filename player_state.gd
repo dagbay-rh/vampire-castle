@@ -2,11 +2,11 @@ extends Node
 
 @onready var player_node = null
 @onready var player_health = 100
+@onready var player_position = Vector2.ZERO
 
 signal change_health(value)
 
 var knockbackTween
-var playerNode
 var engagedEnemies : Array = []
 
 # Called when the node enters the scene tree for the first time.
@@ -17,10 +17,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if player_node:
+		player_position = player_node.position
 	
 func set_player_node(res_path):
-	playerNode = res_path
+	player_node = get_node(res_path)
 
 	
 func take_damage(damage):
@@ -53,4 +54,6 @@ func increase_special():
 	emit_signal("increase_special")
 
 func game_over():
-	print_debug("you dead")
+	get_tree().paused = true
+	SceneSwitch.switch_scene("res://ui/dead.tscn")
+	

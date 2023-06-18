@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7og22afnwgqt"]
+[gd_scene load_steps=12 format=3 uid="uid://b7og22afnwgqt"]
 
 [ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="1_jnwag"]
 [ext_resource type="Script" path="res://levels/sewer/Sewer.gd" id="1_vbcp1"]
 [ext_resource type="AudioStream" uid="uid://p3cx8o25v71v" path="res://art/music/Vampires/Wasted Blood.mp3" id="2_tn4vx"]
 [ext_resource type="TileSet" uid="uid://dmsoau3kdah3e" path="res://art/interiors/Sewer.tres" id="2_ud738"]
+[ext_resource type="PackedScene" uid="uid://s2h1qalmcdyb" path="res://enemies/slime/slime.tscn" id="5_tw2g5"]
+[ext_resource type="PackedScene" uid="uid://cnj3p3okiw34o" path="res://enemies/patrol.tscn" id="6_3f1ic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7gpy"]
 size = Vector2(20, 64)
@@ -109,6 +111,36 @@ offset_right = 1765.0
 offset_bottom = -113.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Slime_One" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Slime_One" groups=["Slime1"]]
+position = Vector2(755, 149)
+
+[node name="Marker2D2" type="Marker2D" parent="Slime_One" groups=["Slime1"]]
+position = Vector2(678, 150)
+
+[node name="Slime" parent="Slime_One" node_paths=PackedStringArray("patrol_direction") instance=ExtResource("5_tw2g5")]
+position = Vector2(719, 148)
+patrol_direction = NodePath("Patrol")
+
+[node name="Patrol" parent="Slime_One/Slime" instance=ExtResource("6_3f1ic")]
+group_name = "Slime1"
+
+[node name="Slime_Two" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Slime_Two" groups=["boop"]]
+position = Vector2(1210, 148)
+
+[node name="Marker2D2" type="Marker2D" parent="Slime_Two" groups=["boop"]]
+position = Vector2(1332, 152)
+
+[node name="Slime" parent="Slime_Two" node_paths=PackedStringArray("patrol_direction") instance=ExtResource("5_tw2g5")]
+position = Vector2(1262, 145)
+patrol_direction = NodePath("Patrol")
+
+[node name="Patrol" parent="Slime_Two/Slime" instance=ExtResource("6_3f1ic")]
+group_name = "boop"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="Area2D-ladder" to="." method="_on_area_2d_ladder_body_entered"]

@@ -76,7 +76,7 @@ func _on_cooldown_timer_timeout():
 	waiting = false
 	attack()
 
-func _on_animated_animated_sprite_2d_animation_finished():
+func _on_animated_sprite_2d_animation_finished():
 	if dead:
 		return
 	

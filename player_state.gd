@@ -25,6 +25,11 @@ func set_player_node(res_path):
 
 	
 func take_damage(damage):
+	print_debug("Player takes " + str(damage) + " points of damage")
+	knockbackTween = get_tree().create_tween()
+	knockbackTween.parallel().tween_property(player_node, "knockback", Vector2(0,0), 0.25)
+	player_node.modulate = Color(1,0,0,1)
+	knockbackTween.parallel().tween_property(player_node, "modulate", Color(1,1,1,1), 0.25)
 	player_health -= damage
 	# signals the bars.gd script to change the health bar value
 	change_health.emit(player_health)
@@ -32,22 +37,12 @@ func take_damage(damage):
 		game_over()
 
 
-#func player_take_damage(_area):
-#	knockbackTween = get_tree().create_tween()
-#	var player = get_node(playerNode)
-#	knockbackTween.parallel().tween_property(player, "knockback", Vector2(0,0), 0.25)
-#
-#	player.modulate = Color(1,0,0,1)
-#	knockbackTween.parallel().tween_property(player, "modulate", Color(1,1,1,1), 0.25)
-#	hurt.emit(10)
-
 func engage_enemy(rid):
 	engagedEnemies.append(rid)
 	
 func disengage_enemy(rid):
 	var enemy_rid = engagedEnemies.find(rid)
 	engagedEnemies.remove_at(enemy_rid)
-	print_debug("enemy " + str(enemy_rid) + " disengaged")
 
 # causes the bars.gd script to add special points to the bar
 func increase_special():

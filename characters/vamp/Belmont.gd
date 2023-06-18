@@ -129,7 +129,7 @@ func physics_process_vampire(delta):
 
 	if direction:
 		#velocity.x = direction.x * speed_vampire + knockback.x
-		velocity.x = direction.x * speed_vampire
+		velocity.x = direction.x * speed_vampire + knockback.x
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
@@ -229,15 +229,16 @@ func reset_collision_shape():
 
 
 func _on_animated_sprite_2d_finished():
+	if(animated_sprite.animation in ["upward_slash", "downward_slash", "side_slash"]):
+		animation_locked = false
+		movement_locked = false
+		$AttackBox.get_child(0).disabled = true
 	if(animated_sprite.animation == "jump_flip"):
 		animation_locked = false
 	if(animated_sprite.animation == "crouch"):
 		reset_collision_shape()
 		animation_locked = false
-	if(animated_sprite.animation in ["upward_slash", "downward_slash", "side_slash"]):
-		animation_locked = false
-		movement_locked = false
-		$AttackBox.get_child(0).disabled = true
+
 	if(animated_sprite.animation == "slide"):
 		reset_collision_shape()
 		recently_slid = true
@@ -251,9 +252,8 @@ func _on_timer_timeout():
 
 
 func _on_hitbox_area_entered(_area):
-	if direction.x > 0:
+	print_debug("knocked_back")
+	if direction.x >= 0:
 		knockback = Vector2(-350, 0)
 	if direction.x < 0:
 		knockback = Vector2(350, 0)
-	# take damage
-	print("hit")

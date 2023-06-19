@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dhtfgpb51rdaa"]
+[gd_scene load_steps=46 format=3 uid="uid://dhtfgpb51rdaa"]
 
 [ext_resource type="Script" path="res://enemies/knight/knight.gd" id="1_72ke6"]
 [ext_resource type="Texture2D" uid="uid://b2ehljjbqgdw4" path="res://enemies/knight/animations/_AttackNoMovement.png" id="2_ky2qg"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ckab8duwatflp" path="res://enemies/knight/animations/_Idle.png" id="4_nuuus"]
 [ext_resource type="Texture2D" uid="uid://d11squ3xdwq0j" path="res://enemies/knight/animations/_Run.png" id="5_ysmlv"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy1yj"]
-height = 35.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g78ap"]
+height = 32.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bt3t"]
 atlas = ExtResource("2_ky2qg")
@@ -273,6 +273,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ct3w"]
 radius = 127.279
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wy1yj"]
+height = 38.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_mslm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfawh"]
@@ -284,8 +287,8 @@ collision_layer = 9
 script = ExtResource("1_72ke6")
 
 [node name="KnightBody" type="CollisionShape2D" parent="."]
-position = Vector2(-25.5, 24.5)
-shape = SubResource("CapsuleShape2D_wy1yj")
+position = Vector2(-19, 27)
+shape = SubResource("CapsuleShape2D_g78ap")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-21, 3)
@@ -302,6 +305,7 @@ wait_time = 0.6
 
 [node name="Trigger" type="Area2D" parent="."]
 z_index = 1
+position = Vector2(-17, 9)
 collision_layer = 0
 collision_mask = 32
 
@@ -312,15 +316,15 @@ debug_color = Color(0.678431, 0.427451, 0.701961, 0.419608)
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(9, 28)
-collision_layer = 20
+collision_layer = 0
 collision_mask = 16
 
 [node name="EnemyBody" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-34.5, -3.5)
+position = Vector2(-27, -4)
 shape = SubResource("CapsuleShape2D_wy1yj")
 
 [node name="AttackBox" type="Area2D" parent="."]
-position = Vector2(-35, 41)
+position = Vector2(-27, 48)
 collision_layer = 0
 collision_mask = 2
 
@@ -330,7 +334,6 @@ shape = SubResource("CircleShape2D_mslm8")
 debug_color = Color(0.796078, 0.403922, 0.368627, 0.419608)
 
 [node name="ChaseRange" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 

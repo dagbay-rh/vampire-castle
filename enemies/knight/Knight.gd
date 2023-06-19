@@ -16,12 +16,13 @@ func _physics_process(delta):
 	var player_direction = distance.normalized()
 	
 	if not attacking:
-		if player_direction.x <= 0:
+		print(player_direction.x)
+		if player_direction.x <= -0.1:
 			animated_sprite.flip_h = true
-			attackBox.transform.origin = Vector2(-35.0, 41.0)
-		if player_direction.x > 0:
+			attackBox.transform.origin = Vector2(-32.0, 44.0)
+		if player_direction.x > -0.1:
 			animated_sprite.flip_h = false
-			attackBox.transform.origin = Vector2(11.0, 38.0)
+			attackBox.transform.origin = Vector2(22.0, 44.0)
 		
 	velocity = position.direction_to(PlayerState.player_position) * speed
 	

@@ -1,6 +1,7 @@
 extends Node
 
 @onready var player_node = null
+@onready var player_max_health = 100
 @onready var player_health = 100
 @onready var player_position = Vector2.ZERO
 
@@ -35,6 +36,15 @@ func take_damage(damage):
 	change_health.emit(player_health)
 	if player_health <= 0:
 		game_over()
+	
+
+func gain_health(points):
+	if player_health + points > player_max_health:
+		player_health = player_max_health
+	else:
+		player_health += points
+	
+	change_health.emit(player_health)
 
 
 func engage_enemy(rid):

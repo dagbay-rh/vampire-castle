@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtvslhxgubh6l"]
+
+[ext_resource type="Script" path="res://items/potions/Potion.gd" id="1_nxi6i"]
+[ext_resource type="Texture2D" uid="uid://6sxac04ig7i" path="res://levels/castle/assets/potion_1.png" id="2_82oa7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8f7j"]
+radius = 23.0
+
+[node name="Potion" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_nxi6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b8f7j")
+
+[node name="Potion1" type="Sprite2D" parent="."]
+position = Vector2(0, 7)
+texture = ExtResource("2_82oa7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

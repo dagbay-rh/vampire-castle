@@ -16,12 +16,12 @@ func _physics_process(delta):
 	var player_direction = distance.normalized()
 	
 	if not attacking:
-		if player_direction.x <= 0:
+		if player_direction.x <= -0.1: # offset so the knight turns when the characters is right behind him
 			animated_sprite.flip_h = true
-			attackBox.transform.origin = Vector2(-35.0, 41.0)
-		if player_direction.x > 0:
+			attackBox.transform.origin = Vector2(-32.0, 44.0)
+		if player_direction.x > -0.1:
 			animated_sprite.flip_h = false
-			attackBox.transform.origin = Vector2(11.0, 38.0)
+			attackBox.transform.origin = Vector2(22.0, 44.0)
 		
 	velocity = position.direction_to(PlayerState.player_position) * speed
 	
@@ -69,13 +69,20 @@ func _on_attack_timer_timeout():
 	attacking = false
 	waiting = true
 	
+	if dead:
+		return
+	
 	animated_sprite.animation = "default"
 	animated_sprite.play()
 
 func _on_cooldown_timer_timeout():
+	if dead:
+		return
+	
 	waiting = false
+	
 	attack()
-
+	
 func _on_animated_sprite_2d_animation_finished():
 	if dead:
 		return

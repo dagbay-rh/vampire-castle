@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	if not attacking:
 		print(player_direction.x)
-		if player_direction.x <= -0.1:
+		if player_direction.x <= -0.1: # offset so the knight turns when the characters is right behind him
 			animated_sprite.flip_h = true
 			attackBox.transform.origin = Vector2(-32.0, 44.0)
 		if player_direction.x > -0.1:

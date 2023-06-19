@@ -162,7 +162,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -293,15 +293,17 @@ shape = SubResource("CapsuleShape2D_g78ap")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-21, 3)
 sprite_frames = SubResource("SpriteFrames_k47kk")
-animation = &"run"
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
 flip_h = true
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 1.261
+wait_time = 1.059
 one_shot = true
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 1.014
 
 [node name="Trigger" type="Area2D" parent="."]
 z_index = 1

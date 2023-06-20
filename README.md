@@ -1,5 +1,9 @@
 # Belmont's night out
 
+![image](https://github.com/dagbay-rh/vampire-castle/assets/87503474/c9fd4d95-6f28-4f4e-837f-3888928b0b39)
+
+<br>
+
 Vampire themed action platformer made in godot. Play as a vampire named Belmont out for a drink at the pub when some riled up townsfolk attack you. Make it back to your castle to sleep it off...
 
 ### Controls
@@ -9,6 +13,11 @@ Vampire themed action platformer made in godot. Play as a vampire named Belmont 
 -   `Enter; Left Mouse`: attack <br>
 -   `E`: transform <br>
 -   `C`: slide <br>
+
+![image](https://github.com/dagbay-rh/vampire-castle/assets/87503474/1dbdb5de-eb2c-4e07-bfab-c16eb714d62b)
+
+
+![image](https://github.com/dagbay-rh/vampire-castle/assets/87503474/e267fcb6-fcbe-430a-b68b-71f46e61ff9d)
 
 ### Credits
 

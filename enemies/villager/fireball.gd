@@ -5,7 +5,6 @@ extends RigidBody2D
 
 func _on_floor_area_entered(_area):
 	# when the fireball reaches the floor
-	print("floor")
 	$Timer.start()
 	self.freeze = true # otherwise it will move relative to the villager
 
@@ -17,7 +16,6 @@ func _on_timer_timeout():
 	queue_free()
 
 
-func _on_hurting_box_area_entered(area):
+func _on_hurting_box_area_entered(_area):
 	# damage player
-	print("hurt")
 	PlayerState.take_damage(10)

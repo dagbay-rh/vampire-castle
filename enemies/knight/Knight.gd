@@ -114,6 +114,10 @@ func attack():
 func inbetween_attacks():
 	pass
 	
+func hit():
+	animated_sprite.animation = "hit"
+	animated_sprite.play()
+	
 func death():
 	# call the enemy base class's death process to add to special and disengage
 	print_debug("enemy dead")

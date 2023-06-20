@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://jp31208vfc4h" path="res://levels/castle/tiles/blank.png" id="4_etm7q"]
 [ext_resource type="Texture2D" uid="uid://c2ari8ttk3mog" path="res://levels/castle/tiles/platform.png" id="5_pt1ba"]
 [ext_resource type="Texture2D" uid="uid://cspf1npq3f75h" path="res://levels/castle/tiles/spikes.png" id="6_68h61"]
-[ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="6_lipeg"]
+[ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://vamp/Belmont.tscn" id="6_lipeg"]
 [ext_resource type="Texture2D" uid="uid://bhggcke68vm3k" path="res://levels/castle/tiles/windows.png" id="7_7t6uy"]
 [ext_resource type="Texture2D" uid="uid://bjl6l7grkis50" path="res://levels/castle/tiles/stairs.png" id="7_ncjqo"]
 [ext_resource type="Texture2D" uid="uid://b7hteudc616qo" path="res://levels/castle/tiles/wall.png" id="8_pp3if"]

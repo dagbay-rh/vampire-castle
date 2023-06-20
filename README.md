@@ -19,6 +19,10 @@ Vampire themed action platformer made in godot. Play as a vampire named Belmont 
 
 ![image](https://github.com/dagbay-rh/vampire-castle/assets/87503474/e267fcb6-fcbe-430a-b68b-71f46e61ff9d)
 
+### Installing & Playing
+
+Downloads and instructions available at https://batdan.itch.io/belmonts-night-out or check out latest releases [here](https://github.com/dagbay-rh/vampire-castle/releases)
+
 ### Credits
 
 consoledot hackathon q3 2023

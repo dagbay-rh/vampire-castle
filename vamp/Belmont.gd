@@ -12,8 +12,11 @@ extends CharacterBody2D
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var body_collision : CollisionShape2D = $bodyCollision
-@onready var attack_box : Area2D = $AttackBox
 @onready var iframe_timer : Timer = $iFrameTimer
+
+const ATTACK_BOX = preload("res://vamp/attack_box.tscn")
+var box_position = Vector2(17.0, 3.0)
+var box_instance = null
 
 # project settings
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -163,10 +166,10 @@ func update_animation():
 func update_facing_direction():
 	if direction.x > 0:
 		animated_sprite.flip_h = false
-		attack_box.position.x = 17
+		box_position.x = 17
 	elif direction.x < 0:
 		animated_sprite.flip_h = true
-		attack_box.position.x = -17
+		box_position.x = -17
 
 
 func jump():
@@ -197,9 +200,13 @@ func attack():
 	movement_locked = true
 	animated_sprite.play(attack_anims[random_anim])
 	
-	attack_box.get_child(0).disabled = false
-	attack_box.monitoring = true
-	attack_box.monitorable = true
+	# spawn attack box
+	if not box_instance:
+		box_instance = ATTACK_BOX.instantiate()
+		add_child(box_instance)
+	
+	box_instance.position = box_position
+	
 	animation_locked = true
 
 
@@ -238,9 +245,9 @@ func _on_animated_sprite_2d_finished():
 	if(animated_sprite.animation in ["upward_slash", "downward_slash", "side_slash"]):
 		animation_locked = false
 		movement_locked = false
-		attack_box.get_child(0).disabled = true
-		attack_box.monitoring = false
-		attack_box.monitorable = false
+		# removing box is too slow
+		# going to move it off screen
+		box_instance.position.x = 10000
 	if(animated_sprite.animation == "jump_flip"):
 		animation_locked = false
 	if(animated_sprite.animation == "crouch"):
@@ -270,6 +277,8 @@ func _on_hitbox_area_entered(area):
 	
 	PlayerState.set_iframe(true)
 	iframe_timer.start()
+	
+	#lose hitbox
 
 
 func _on_i_frame_timer_timeout():

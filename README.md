@@ -24,11 +24,11 @@ Vampire themed action platformer made in godot. Play as a vampire named Belmont 
 Downloads and instructions available at https://batdan.itch.io/belmonts-night-out or check out latest releases [here](https://github.com/dagbay-rh/vampire-castle/releases)
 
 ### Assets
--  ![Belmont](https://rvros.itch.io/animated-pixel-hero)
--  ![Knight](https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character)
--  ![Sewer]()
--  ![Village](https://cainos.itch.io/pixel-art-platformer-village-props)
--  ![Castle](https://brullov.itch.io/2d-platformer-asset-pack-castle-of-despair)
+-  [Belmont](https://rvros.itch.io/animated-pixel-hero)
+-  [Knight](https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character)
+-  [Sewer]()
+-  [Village](https://cainos.itch.io/pixel-art-platformer-village-props)
+-  [Castle](https://brullov.itch.io/2d-platformer-asset-pack-castle-of-despair)
 
 ### Credits
 

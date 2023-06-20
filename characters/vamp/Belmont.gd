@@ -141,6 +141,7 @@ func physics_process_bat(delta):
 	
 	if direction:
 		velocity.x = direction.x * speed_bat_x  + knockback.x
+		velocity.y = direction.y * speed_bat_y  + knockback.y
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 		velocity.y = move_toward(velocity.y, 0, friction * delta)

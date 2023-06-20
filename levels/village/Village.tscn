@@ -18873,6 +18873,14 @@ offset_right = 3728.0
 offset_bottom = 891.0
 color = Color(0.0660975, 1.24087e-08, 7.52043e-10, 0.776471)
 
+[node name="Belmont" parent="." instance=ExtResource("9_we130")]
+position = Vector2(207.048, 380)
+collision_mask = 13
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Belmont"]
+position = Vector2(0, -3)
+remote_path = NodePath("../../Camera2D")
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-2.952, 336)
 tile_set = SubResource("TileSet_4xgsu")
@@ -18957,14 +18965,6 @@ offset_bottom = 530.0
 color = Color(0, 0, 0, 1)
 
 [node name="Characters" type="Node2D" parent="."]
-
-[node name="Belmont" parent="Characters" instance=ExtResource("9_we130")]
-position = Vector2(207.048, 380)
-collision_mask = 13
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Characters/Belmont"]
-position = Vector2(0, -3)
-remote_path = NodePath("../../../Camera2D")
 
 [node name="VillagerMan" parent="Characters" instance=ExtResource("13_jdy25")]
 position = Vector2(765.048, 384)

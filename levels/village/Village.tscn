@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://di2i73jcvng0a"]
+[gd_scene load_steps=28 format=3 uid="uid://di2i73jcvng0a"]
 
 [ext_resource type="Script" path="res://levels/village/village.gd" id="1_n0sb1"]
 [ext_resource type="AudioStream" uid="uid://c8ra5pqwiwjtc" path="res://art/music/Vampires/At Night.mp3" id="2_uh74q"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://brht536tae1c3" path="res://art/exteriors/stringstar fields/background_0.png" id="10_ydr6h"]
 [ext_resource type="Texture2D" uid="uid://nyvi56r0ie5e" path="res://art/exteriors/stringstar fields/background_1.png" id="11_q4bl4"]
 [ext_resource type="Texture2D" uid="uid://boageyargbm20" path="res://art/exteriors/stringstar fields/background_2.png" id="12_jcuq1"]
+[ext_resource type="PackedScene" uid="uid://c55qekd1y2d7n" path="res://enemies/villager/villager.tscn" id="13_jdy25"]
 [ext_resource type="PackedScene" uid="uid://c6e3ji0m0emmb" path="res://hazards/spike.tscn" id="13_pkwc6"]
 [ext_resource type="PackedScene" uid="uid://dtvslhxgubh6l" path="res://items/potions/potion.tscn" id="14_6052o"]
 
@@ -18893,14 +18894,6 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(-65362, 851972, 5, -65360, 851972, 5, -65359, 851972, 5, -393042, 65541, 5, -393039, 65541, 5, -196433, 4, 26, -196432, 983044, 0, 196783, 1048580, 0, 196784, 1114116, 0, 196785, 1048580, 0, 196786, 1114116, 0, 196781, 1048580, 0, 196782, 1114116, 0, 196778, 1245188, 2, 196777, 1245188, 2, 160, 917508, 5, 65696, 917508, 6, 166, 917508, 5, 65702, 917508, 6, -655186, 917508, 6, -655184, 917508, 6, 178, 851972, 5, 65714, 851972, 5)
 
-[node name="Belmont" parent="." instance=ExtResource("9_we130")]
-position = Vector2(207.048, 380)
-collision_mask = 13
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Belmont"]
-position = Vector2(0, -3)
-remote_path = NodePath("../../Camera2D")
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2606.05, 376)
 collision_mask = 2
@@ -18962,6 +18955,22 @@ offset_top = -222.0
 offset_right = 3354.0
 offset_bottom = 530.0
 color = Color(0, 0, 0, 1)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Belmont" parent="Characters" instance=ExtResource("9_we130")]
+position = Vector2(207.048, 380)
+collision_mask = 13
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Characters/Belmont"]
+position = Vector2(0, -3)
+remote_path = NodePath("../../../Camera2D")
+
+[node name="VillagerMan" parent="Characters" instance=ExtResource("13_jdy25")]
+position = Vector2(765.048, 384)
+
+[node name="VillagerMan2" parent="Characters" instance=ExtResource("13_jdy25")]
+position = Vector2(1659.05, 256)
 
 [node name="Objects" type="Node2D" parent="."]
 

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4c4t6pvmpdo"]
+[gd_scene load_steps=5 format=3 uid="uid://b4c4t6pvmpdo"]
 
 [ext_resource type="Texture2D" uid="uid://dxpu5e50byjxn" path="res://art/backgrounds/NightSky.png" id="1_uswex"]
 [ext_resource type="TileSet" uid="uid://dmsoau3kdah3e" path="res://art/interiors/Sewer.tres" id="2_8pcpq"]
 [ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="3_46e3b"]
-[ext_resource type="PackedScene" uid="uid://c55qekd1y2d7n" path="res://enemies/village_man/villager_man.tscn" id="4_eamoj"]
-[ext_resource type="PackedScene" uid="uid://cwdc6gcxdtst6" path="res://enemies/village_man/fireball.tscn" id="5_i83ls"]
+[ext_resource type="PackedScene" uid="uid://c55qekd1y2d7n" path="res://enemies/villager/villager.tscn" id="4_eamoj"]
 
 [node name="PlayGround" type="Node2D"]
 
@@ -30,8 +29,3 @@ position = Vector2(23, 268)
 
 [node name="VillagerMan" parent="." instance=ExtResource("4_eamoj")]
 position = Vector2(157, 272)
-FIREBALL = ExtResource("5_i83ls")
-hit_points = 3
-attack_power = 10
-speed = 30
-attack_delay = 2.0

@@ -7,6 +7,7 @@ func _on_floor_area_entered(_area):
 	# when the fireball reaches the floor
 	print("floor")
 	$Timer.start()
+	self.freeze = true # otherwise it will move relative to the villager
 
 
 func _on_timer_timeout():

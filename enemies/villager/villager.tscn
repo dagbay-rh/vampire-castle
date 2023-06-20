@@ -1,11 +1,11 @@
 [gd_scene load_steps=28 format=3 uid="uid://c55qekd1y2d7n"]
 
-[ext_resource type="Script" path="res://enemies/village_man/villager_man.gd" id="1_p21bj"]
-[ext_resource type="Texture2D" uid="uid://bi5cy14v77uux" path="res://enemies/village_man/Old_man.png" id="2_xecsn"]
-[ext_resource type="Texture2D" uid="uid://kibifyouc7w" path="res://enemies/village_man/Old_man_death.png" id="3_lklm1"]
-[ext_resource type="Texture2D" uid="uid://dqhumv1vp73h0" path="res://enemies/village_man/Old_man_idle.png" id="4_l0025"]
-[ext_resource type="Texture2D" uid="uid://c46uvbaorm7g1" path="res://enemies/village_man/Old_man_hurt.png" id="5_gw5dj"]
-[ext_resource type="Texture2D" uid="uid://ofw30tjtc32e" path="res://enemies/village_man/Old_man_walk.png" id="6_47eom"]
+[ext_resource type="Script" path="res://enemies/villager/villager.gd" id="1_p21bj"]
+[ext_resource type="Texture2D" uid="uid://bi5cy14v77uux" path="res://enemies/villager/Old_man.png" id="2_xecsn"]
+[ext_resource type="Texture2D" uid="uid://kibifyouc7w" path="res://enemies/villager/Old_man_death.png" id="3_lklm1"]
+[ext_resource type="Texture2D" uid="uid://dqhumv1vp73h0" path="res://enemies/villager/Old_man_idle.png" id="4_l0025"]
+[ext_resource type="Texture2D" uid="uid://c46uvbaorm7g1" path="res://enemies/villager/Old_man_hurt.png" id="5_gw5dj"]
+[ext_resource type="Texture2D" uid="uid://ofw30tjtc32e" path="res://enemies/villager/Old_man_walk.png" id="6_47eom"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xhdb"]
 radius = 9.0

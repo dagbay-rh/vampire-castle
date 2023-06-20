@@ -4,7 +4,7 @@ extends Enemy
 @onready var fireball_marker : Marker2D = $FireballMarker
 @onready var timer : Timer = $CooldownTimer
 
-@export var FIREBALL: PackedScene = preload("res://enemies/village_man/fireball.tscn")
+@export var FIREBALL: PackedScene = preload("res://enemies/villager/fireball.tscn")
 
 var exists = false
 var fireball_limit = 3
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	
 	if attacking:
 		velocity.x = 0
-	elif distance.x < 20.0:
+	elif distance.x < 20.0 and distance.x > -20.0:
 		velocity.x = 0
 		attack()
 		

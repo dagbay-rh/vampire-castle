@@ -26,7 +26,7 @@ Downloads and instructions available at https://batdan.itch.io/belmonts-night-ou
 ### Assets
 -  [Belmont](https://rvros.itch.io/animated-pixel-hero)
 -  [Knight](https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character)
--  [Jail] (https://incolgames.itch.io/dungeon-platformer-tile-set-pixel-art)
+-  [Jail](https://incolgames.itch.io/dungeon-platformer-tile-set-pixel-art)
 -  [Sewer](https://anokolisa.itch.io/action)
 -  [Village](https://cainos.itch.io/pixel-art-platformer-village-props), [Village background](https://trixelized.itch.io/starstring-fields), [Castle](https://szadiart.itch.io/pixle-castle-2d)
 -  [Castle](https://brullov.itch.io/2d-platformer-asset-pack-castle-of-despair)

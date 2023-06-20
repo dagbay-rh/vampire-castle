@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-@onready var villager = get_parent()
+var parent_name = "VillagerMan"
+@onready var villager = get_parent().find_child(parent_name)
 
 
 func _on_floor_area_entered(_area):
@@ -11,7 +12,7 @@ func _on_floor_area_entered(_area):
 
 func _on_timer_timeout():
 	# alert the villager; remove fireball at the end of the timer
-	villager.fireball_despawned()
+	# villager.fireball_despawned()
 	
 	queue_free()
 

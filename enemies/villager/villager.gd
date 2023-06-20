@@ -3,12 +3,12 @@ extends Enemy
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var fireball_marker : Marker2D = $FireballMarker
 @onready var timer : Timer = $CooldownTimer
+@onready var parent = get_parent()
 
 @export var FIREBALL: PackedScene = preload("res://enemies/villager/fireball.tscn")
 
-var exists = false
-var fireball_limit = 3
-var fireball_count = 0
+# var fireball_limit = 3
+# var fireball_count = 0
 
 func _physics_process(delta):
 	if dead:
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	
 	if attacking:
 		velocity.x = 0
-	elif distance.x < 20.0 and distance.x > -20.0:
+	elif distance.x < 40.0 and distance.x > -40.0:
 		velocity.x = 0
 		attack()
 		
@@ -90,7 +90,7 @@ func _on_animated_sprite_2d_animation_finished():
 
 func attack():
 	# attack and start timer
-	if waiting or fireball_count >= fireball_limit:
+	if waiting:
 		return
 	
 	if FIREBALL == null:
@@ -105,28 +105,28 @@ func attack():
 	# attack hitbox controlled by fireball script
 	# instantiate fireball at marker
 	var ball = FIREBALL.instantiate()
-	add_child(ball)
+	parent.add_child(ball)
 	ball.global_position = fireball_marker.global_position
 	
-	var dir = animated_sprite.flip_h # true is left
-	ball.get_child(0).flip_h = not dir
+	var dire = animated_sprite.flip_h # true is left
+	ball.get_child(0).flip_h = not dire
 	
 	# add velocity to ball
-	if dir:
+	if dire:
 		ball.linear_velocity = Vector2(-60, -5)
 	else:
 		ball.linear_velocity = Vector2(60, -5)
 		
-	fireball_count += 1
+	#fireball_count += 1
 		
-func fireball_despawned():
+# func fireball_despawned():
 	# fireball despawned can attack again
-	if dead or not engaged:
-		return
+	# if dead or not engaged:
+	#	return
 		
-	fireball_count -= 1
+	# fireball_count -= 1
 		
-	attack()
+	# attack()
 
 func inbetween_attacks():
 	pass

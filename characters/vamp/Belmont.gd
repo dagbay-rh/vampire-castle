@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var body_collision : CollisionShape2D = $bodyCollision
 @onready var attack_box : Area2D = $AttackBox
+@onready var iframe_timer : Timer = $iFrameTimer
 
 # project settings
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -265,3 +266,11 @@ func _on_hitbox_area_entered(area):
 	var dir = Vector2(dir_x, dir_y).normalized()
 	
 	knockback = dir * 350
+	
+	PlayerState.set_iframe(true)
+	iframe_timer.start()
+
+
+func _on_i_frame_timer_timeout():
+	# reset iframe value to false
+	PlayerState.set_iframe(false)

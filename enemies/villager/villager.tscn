@@ -164,6 +164,8 @@ height = 38.0
 size = Vector2(685, 246)
 
 [node name="VillagerMan" type="CharacterBody2D"]
+z_index = 5
+position = Vector2(-2, -1)
 collision_layer = 4
 script = ExtResource("1_p21bj")
 ranged = true

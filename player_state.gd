@@ -9,6 +9,7 @@ signal change_health(value)
 
 var knockbackTween
 var engagedEnemies : Array = []
+var iframe = false # true if iframe on
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,11 +22,20 @@ func _process(delta):
 	if player_node:
 		player_position = player_node.position
 	
+
 func set_player_node(res_path):
 	player_node = get_node(res_path)
 
-	
+
+func set_iframe(iframe_sent):
+	iframe = iframe_sent
+
+
+
 func take_damage(damage):
+	if iframe:
+		return
+	
 	print_debug("Player takes " + str(damage) + " points of damage")
 	knockbackTween = get_tree().create_tween()
 	knockbackTween.parallel().tween_property(player_node, "knockback", Vector2(0,0), 0.25)

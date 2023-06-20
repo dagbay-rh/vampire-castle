@@ -702,6 +702,7 @@ jump_velocity = -300.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xq2vw")
+animation = &"downward_slash"
 autoplay = "default"
 
 [node name="bodyCollision" type="CollisionShape2D" parent="."]
@@ -712,13 +713,16 @@ shape = SubResource("CapsuleShape2D_14eh3")
 position = Vector2(17, 3)
 collision_layer = 16
 collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
 shape = SubResource("CapsuleShape2D_oold5")
+disabled = true
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, 2)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 68
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
@@ -726,13 +730,17 @@ shape = SubResource("CapsuleShape2D_oold5")
 
 [node name="Trigger" type="Area2D" parent="."]
 collision_layer = 32
-collision_mask = 32
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
 shape = SubResource("CircleShape2D_7mpod")
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="iFrameTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_finished"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="iFrameTimer" to="." method="_on_i_frame_timer_timeout"]

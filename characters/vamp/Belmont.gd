@@ -12,6 +12,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var body_collision : CollisionShape2D = $bodyCollision
+@onready var attack_box : Area2D = $AttackBox
+@onready var iframe_timer : Timer = $iFrameTimer
 
 # project settings
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -25,7 +27,8 @@ var attacking : bool = false
 
 # inputs
 var input : Dictionary = {}
-var direction : Vector2 = Vector2.ZERO
+
+var direction = Vector2.ZERO
 
 # knockback
 var knockback : Vector2 = Vector2(0, 0)
@@ -73,15 +76,14 @@ func get_input():
 		"released_attack": Input.is_action_just_released("attack"),
 	}
 	
-	if movement_locked == false:
-		direction = input["direction"]
+	return input["direction"]
 
 
 func _physics_process(delta):
 	if pause_input:
 		return
 	
-	get_input()
+	direction = get_input()
 	
 	if is_bat:
 		physics_process_bat(delta)
@@ -97,9 +99,6 @@ func physics_process_vampire(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		
-	if not attacking:
-		$AttackBox.get_child(0).disabled = true
 
 	# Handle Jump.
 	if input["just_jump"] and is_on_floor():
@@ -126,21 +125,22 @@ func physics_process_vampire(delta):
 		if animated_sprite.animation == "crouch":
 			animated_sprite.stop()
 			animated_sprite.emit_signal("animation_finished")
-
+	
+	velocity.x += knockback.x
+	velocity.y += knockback.y
+	knockback = Vector2.ZERO
+	
 	if direction:
-		#velocity.x = direction.x * speed_vampire + knockback.x
-		velocity.x = direction.x * speed_vampire + knockback.x
-	else:
-		velocity.x = move_toward(velocity.x, 0, friction * delta)
+		velocity.x = direction.x * speed_vampire
 
+	velocity.x = move_toward(velocity.x, 0, friction * delta)
 
 func physics_process_bat(delta):
 	if input["just_transform"]:
 		vampire_transform()
 	
 	if direction:
-		velocity.x = direction.x * speed_bat_x
-		velocity.y = direction.y * speed_bat_y
+		velocity.x = direction.x * speed_bat_x  + knockback.x
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 		velocity.y = move_toward(velocity.y, 0, friction * delta)
@@ -162,10 +162,10 @@ func update_animation():
 func update_facing_direction():
 	if direction.x > 0:
 		animated_sprite.flip_h = false
-		$AttackBox.position.x = 17
+		attack_box.position.x = 17
 	elif direction.x < 0:
 		animated_sprite.flip_h = true
-		$AttackBox.position.x = -17
+		attack_box.position.x = -17
 
 
 func jump():
@@ -187,14 +187,19 @@ func slide():
 		animation_locked = true
 		
 func attack():
+	if not is_on_floor():
+		return
+	
 	attacking = true
 	var random_anim = randi() % len(attack_anims)
 	direction.x = 0
 	movement_locked = true
 	animated_sprite.play(attack_anims[random_anim])
-	$AttackBox.monitoring = true
+	
+	attack_box.get_child(0).disabled = false
+	attack_box.monitoring = true
+	attack_box.monitorable = true
 	animation_locked = true
-	$AttackBox.get_child(0).disabled = false
 
 
 func bat_transform():
@@ -232,7 +237,9 @@ func _on_animated_sprite_2d_finished():
 	if(animated_sprite.animation in ["upward_slash", "downward_slash", "side_slash"]):
 		animation_locked = false
 		movement_locked = false
-		$AttackBox.get_child(0).disabled = true
+		attack_box.get_child(0).disabled = true
+		attack_box.monitoring = false
+		attack_box.monitorable = false
 	if(animated_sprite.animation == "jump_flip"):
 		animation_locked = false
 	if(animated_sprite.animation == "crouch"):
@@ -251,9 +258,19 @@ func _on_timer_timeout():
 	recently_slid = false # Replace with function body.
 
 
-func _on_hitbox_area_entered(_area):
+func _on_hitbox_area_entered(area):
 	print_debug("knocked_back")
-	if direction.x >= 0:
-		knockback = Vector2(-350, 0)
-	if direction.x < 0:
-		knockback = Vector2(350, 0)
+	var dir_x = position.x - area.position.x
+	var dir_y = position.y - area.position.y
+	
+	var dir = Vector2(dir_x, dir_y).normalized()
+	
+	knockback = dir * 350
+	
+	PlayerState.set_iframe(true)
+	iframe_timer.start()
+
+
+func _on_i_frame_timer_timeout():
+	# reset iframe value to false
+	PlayerState.set_iframe(false)

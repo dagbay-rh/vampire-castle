@@ -1,7 +1,7 @@
 extends Control
 
 func _on_new_game_pressed():
-	SceneSwitch.switch_scene("res://levels/introduction.tscn")
+	SceneSwitch.switch_scene("res://levels/introduction/introduction.tscn")
 	
 func _on_load_game_pressed():
 	# going to use load game to skip the cutscene for now

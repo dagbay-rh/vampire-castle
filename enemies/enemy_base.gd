@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Enemy
 
 # required for enemy to impact the play
-@onready var attackBox : Area2D = $AttackBox # not all enemies will need this
+@onready var attackBox : Area2D # not all enemies will need this
 @onready var rid : int = get_rid().get_id()
 
 # configurable params per enemy
@@ -34,6 +34,7 @@ var dir = DIRECTION.LEFT
 
 func _ready():
 	if not ranged:
+		attackBox = $AttackBox
 		attackBox.monitoring = false
 		attackBox.get_child(0).disabled = true
 

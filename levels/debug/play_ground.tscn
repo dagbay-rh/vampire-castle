@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dxpu5e50byjxn" path="res://art/backgrounds/NightSky.png" id="1_uswex"]
 [ext_resource type="TileSet" uid="uid://dmsoau3kdah3e" path="res://art/interiors/Sewer.tres" id="2_8pcpq"]
 [ext_resource type="PackedScene" uid="uid://cy37dfssjmopg" path="res://characters/vamp/Belmont.tscn" id="3_46e3b"]
-[ext_resource type="PackedScene" uid="uid://c55qekd1y2d7n" path="res://enemies/villager/villager.tscn" id="4_eamoj"]
+[ext_resource type="PackedScene" uid="uid://dtvslhxgubh6l" path="res://items/potions/potion.tscn" id="4_t4la6"]
 
 [node name="PlayGround" type="Node2D"]
 
@@ -27,5 +27,5 @@ layer_0/tile_data = PackedInt32Array(1114112, 393216, 4, 1114113, 458752, 4, 111
 [node name="Belmont" parent="." instance=ExtResource("3_46e3b")]
 position = Vector2(23, 268)
 
-[node name="VillagerMan" parent="." instance=ExtResource("4_eamoj")]
-position = Vector2(157, 272)
+[node name="Potion" parent="." instance=ExtResource("4_t4la6")]
+position = Vector2(157, 267)

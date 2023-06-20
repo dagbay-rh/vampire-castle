@@ -1,21 +1,22 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-var thrown = false
-const speed = 500
-@onready var player = get_parent().get_node("Characters").get_node("Belmont")
+@onready var villager = get_parent()
 
-func _physics_process(delta):
-	if not thrown:
-		self.position = get_parent().get_node("VillagerMan/Marker2D").global_position
-		
-	var distance = player.position - self.position
-	var player_direction = distance.normalized()
-	print("DISTANCE: ")
-	print(distance)
-	if distance.y > -5 and distance.y < 0: 
-		thrown = true
-		velocity = position.direction_to(player.position) * speed
-		move_and_slide()
-	if distance.y == 0:
-		self.queue_free()
-	print(self.position)
+
+func _on_floor_area_entered(_area):
+	# when the fireball reaches the floor
+	print("floor")
+	$Timer.start()
+
+
+func _on_timer_timeout():
+	# alert the villager; remove fireball at the end of the timer
+	villager.fireball_despawned()
+	
+	queue_free()
+
+
+func _on_hurting_box_area_entered(area):
+	# damage player
+	print("hurt")
+	PlayerState.take_damage(10)

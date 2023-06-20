@@ -1,11 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwdc6gcxdtst6"]
+[gd_scene load_steps=6 format=3 uid="uid://cwdc6gcxdtst6"]
 
-[ext_resource type="Texture2D" uid="uid://fdxct2b15ia6" path="res://items/projectiles/flame1.png" id="1_m570j"]
+[ext_resource type="Script" path="res://enemies/village_man/fireball.gd" id="1_60fbd"]
+[ext_resource type="Texture2D" uid="uid://bd8g4shbbcfqp" path="res://items/projectiles/flame1.png" id="1_m570j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3u8j"]
+radius = 7.07107
 
-[node name="Fireball" type="CharacterBody2D"]
-position = Vector2(49, -15)
+[sub_resource type="CircleShape2D" id="CircleShape2D_rm0oj"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r0qc7"]
+radius = 8.0
+
+[node name="Fireball" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 9
+gravity_scale = 0.1
+lock_rotation = true
+script = ExtResource("1_60fbd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-7.62939e-06, 0)
@@ -14,3 +26,26 @@ texture = ExtResource("1_m570j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x3u8j")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="FloorBox" type="Area2D" parent="."]
+scale = Vector2(0.784, 1.76)
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorBox"]
+shape = SubResource("CircleShape2D_rm0oj")
+
+[node name="HurtingBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtingBox"]
+shape = SubResource("CircleShape2D_r0qc7")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="FloorBox" to="." method="_on_floor_area_entered"]
+[connection signal="area_entered" from="HurtingBox" to="." method="_on_hurting_box_area_entered"]

@@ -1,127 +1,153 @@
-extends CharacterBody2D
+extends Enemy
 
-@onready var player = get_parent().get_node("Characters").get_node("Belmont")
-@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
-@onready var fireinstance = get_parent().get_node("Fireball")
-var fire = preload("res://fireball.tscn")
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var fireball_marker : Marker2D = $FireballMarker
+@onready var timer : Timer = $CooldownTimer
+
+@export var FIREBALL: PackedScene = preload("res://enemies/village_man/fireball.tscn")
+
 var exists = false
-
-# @onready var timer : Timer = $AttackTimer
-# @onready var hitbox : Area2D = $Hitbox
-
-const speed = 30
-
-# project settings
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-var active = true
-var dead = false
-var attacking = false
-var health = 3
-
-# func _ready():
-	# hitbox.monitoring = false
-	# hitbox.get_child(0).disabled = true
+var fireball_limit = 3
+var fireball_count = 0
 
 func _physics_process(delta):
 	if dead:
 		set_physics_process(false)
 		return
+		
+	if not engaged:
+		return
+		
+	var distance = PlayerState.player_position - self.position
+	var player_direction = distance.normalized()
+		
+	if player_direction.x <= 0:
+		animated_sprite.flip_h = true
+		animated_sprite.position = Vector2(-11, -8)
+		fireball_marker.position = Vector2(-11, 0)
+	if player_direction.x > 0:
+		animated_sprite.flip_h = false
+		animated_sprite.position = Vector2(11, -8)
+		fireball_marker.position = Vector2(11, 0)
 	
-	if active and player:
-		var distance = player.position - self.position
-		var player_direction = distance.normalized()
-		if exists: 
-			if fireinstance: 
-				var fireball_distance = player.position - fireinstance.position
-				if fireball_distance.y == 0:
-					exists = false
-			else:
-				exists = false
-		# var fireball = ENERGYBALL.instance()
-		# get_tree().current_scene.add_child(fireball)
-		if not exists: 
-			var instance = fire.instantiate()
-			add_child(instance)
-			print("added")
-			exists = true
+	velocity = position.direction_to(PlayerState.player_position) * speed
+	
+	if attacking:
+		velocity.x = 0
+	elif distance.x < 20.0:
+		velocity.x = 0
+		attack()
 		
-		if player_direction.x <= 0:
-			sprite.flip_h = true
-			# hitbox.transform.origin = Vector2(-55.0, 20.0)
-		if player_direction.x > 0:
-			sprite.flip_h = false
-			# hitbox.transform.origin = Vector2(2.0, 20.0)
-			
-		velocity = position.direction_to(player.position) * speed
-		
-		if attacking:
-			velocity.x = 0
-		elif distance.x < 15.0:
-			velocity.x = 0
-			attack()
-			
-		if not is_on_floor():
-			velocity.y += gravity * delta
-		else:
-			velocity.y = 0
-		
-		move_and_slide()
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	else:
+		velocity.y = 0
+	
+	move_and_slide()
 
 func _on_trigger_area_entered(_area):
 	# whenever the player enters the area, attack mode
-	if active:
+	if engaged:
 		# ignore, already active
 		return
-	
-	active = true
-	# sprite.animation = "run"
-	sprite.play()
+		
+	if dead:
+		return # literally dead
+	PlayerState.engage_enemy(rid)
+	engaged = true
+	animated_sprite.animation = "walk"
+	animated_sprite.play()
 
-func _on_stop_area_exited(_area):
-	active = false
+func _on_chase_range_area_exited(_area):
+	engaged = false
 	if dead:
 		queue_free()
 	else:
-		sprite.animation = "Throw"
-	
-func _on_attack_timer_timeout():
-	if active and not dead:
-		attack()
+		animated_sprite.animation = "default"
+		animated_sprite.play()
 
-func _on_hitbox_area_entered(_area):
-	# player takes damage
-	print("take damage")
+func _on_cooldown_timer_timeout():
+	if dead:
+		return
 	
-func _on_hurtbox_area_entered(_area):
-	# take damage
-	health -= 1
-	if health <= 0:
-		death()
-
+	waiting = false
+	attacking = false
+	
+	attack()
+	
 func _on_animated_sprite_2d_animation_finished():
 	if dead:
 		return
 	
-	# sprite.animation = "run"
-	sprite.play()
+	animated_sprite.animation = "walk"
+	animated_sprite.play()
+	
 	attacking = false
 	
-	# hitbox.monitoring = false
-	# hitbox.get_child(0).disabled = true
+	# start waiting
+	waiting = true
+	$CooldownTimer.start()
 
 func attack():
 	# attack and start timer
-	# sprite.animation = "attack"
-	sprite.play()
-	# timer.start()
+	if waiting or fireball_count >= fireball_limit:
+		return
+	
+	if FIREBALL == null:
+		# what?
+		return
+	
+	animated_sprite.animation = "attack"
+	animated_sprite.play()
 	
 	attacking = true
-	# hitbox.monitoring = true
-	# hitbox.get_child(0).disabled = false
+	
+	# attack hitbox controlled by fireball script
+	# instantiate fireball at marker
+	var ball = FIREBALL.instantiate()
+	add_child(ball)
+	ball.global_position = fireball_marker.global_position
+	
+	var dir = animated_sprite.flip_h # true is left
+	ball.get_child(0).flip_h = not dir
+	
+	# add velocity to ball
+	if dir:
+		ball.linear_velocity = Vector2(-60, -5)
+	else:
+		ball.linear_velocity = Vector2(60, -5)
+		
+	fireball_count += 1
+		
+func fireball_despawned():
+	# fireball despawned can attack again
+	if dead or not engaged:
+		return
+		
+	fireball_count -= 1
+		
+	attack()
+
+func inbetween_attacks():
+	pass
+
+func hit():
+	animated_sprite.animation = "hurt"
+	animated_sprite.play()
 	
 func death():
-	# sprite.animation = "death"
-	sprite.play()
+	# call the enemy base class's death process to add to special and disengage
+	print_debug("enemy dead")
+	death_process()
+	
+	animated_sprite.animation = "death"
+	animated_sprite.play()
+	
+	remove_collisions()
 	dead = true
-	active = false
+	engaged = false
+
+func remove_collisions():
+	# TODO: Figure out the right way to clear the boxes. Disabling didn't work
+	remove_child($Hitbox)
+	remove_child($CollisionShape2D)

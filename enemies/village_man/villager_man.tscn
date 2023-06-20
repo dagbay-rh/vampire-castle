@@ -1,0 +1,218 @@
+[gd_scene load_steps=28 format=3 uid="uid://c55qekd1y2d7n"]
+
+[ext_resource type="Script" path="res://enemies/village_man/villager_man.gd" id="1_p21bj"]
+[ext_resource type="Texture2D" uid="uid://bi5cy14v77uux" path="res://enemies/village_man/Old_man.png" id="2_xecsn"]
+[ext_resource type="Texture2D" uid="uid://kibifyouc7w" path="res://enemies/village_man/Old_man_death.png" id="3_lklm1"]
+[ext_resource type="Texture2D" uid="uid://dqhumv1vp73h0" path="res://enemies/village_man/Old_man_idle.png" id="4_l0025"]
+[ext_resource type="Texture2D" uid="uid://c46uvbaorm7g1" path="res://enemies/village_man/Old_man_hurt.png" id="5_gw5dj"]
+[ext_resource type="Texture2D" uid="uid://ofw30tjtc32e" path="res://enemies/village_man/Old_man_walk.png" id="6_47eom"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xhdb"]
+radius = 9.0
+height = 28.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcxr5"]
+atlas = ExtResource("3_lklm1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh7qe"]
+atlas = ExtResource("3_lklm1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5sjs"]
+atlas = ExtResource("3_lklm1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inpmn"]
+atlas = ExtResource("3_lklm1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhtdw"]
+atlas = ExtResource("4_l0025")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75a1y"]
+atlas = ExtResource("4_l0025")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xva1v"]
+atlas = ExtResource("4_l0025")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yc06r"]
+atlas = ExtResource("4_l0025")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d87il"]
+atlas = ExtResource("5_gw5dj")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b3qf"]
+atlas = ExtResource("5_gw5dj")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6j1x"]
+atlas = ExtResource("6_47eom")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy460"]
+atlas = ExtResource("6_47eom")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y64w"]
+atlas = ExtResource("6_47eom")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v83cl"]
+atlas = ExtResource("6_47eom")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt08t"]
+atlas = ExtResource("6_47eom")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srkhr"]
+atlas = ExtResource("6_47eom")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1442"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xecsn")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcxr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh7qe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5sjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inpmn")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhtdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75a1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xva1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yc06r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d87il")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b3qf")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6j1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy460")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y64w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v83cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt08t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srkhr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sd2ua"]
+radius = 127.279
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vw3l7"]
+height = 38.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwdya"]
+size = Vector2(685, 246)
+
+[node name="VillagerMan" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_p21bj")
+ranged = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1xhdb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, -8)
+sprite_frames = SubResource("SpriteFrames_t1442")
+animation = &"attack"
+flip_h = true
+
+[node name="FireballMarker" type="Marker2D" parent="."]
+position = Vector2(-10, 0)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Trigger" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(0, -1)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_sd2ua")
+debug_color = Color(0.678431, 0.427451, 0.701961, 0.419608)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="EnemyBody" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_vw3l7")
+
+[node name="ChaseRange" type="Area2D" parent="."]
+position = Vector2(1, -1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseRange"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_rwdya")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="area_entered" from="Trigger" to="." method="_on_trigger_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="ChaseRange" to="." method="_on_chase_range_area_exited"]

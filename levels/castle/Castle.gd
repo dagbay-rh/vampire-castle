@@ -20,4 +20,4 @@ func _on_outer_bedroom_door_body_entered(body):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_scene":
 		PlayerState.player_node.pause_input = false
-		SceneSwitch.switch_scene("res://levels/BelmontBedroom/belmont_bedroom.tscn")
+		SceneSwitch.switch_scene("res://levels/bedroom/belmont_bedroom.tscn")

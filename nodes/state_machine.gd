@@ -26,7 +26,6 @@ func set_active(value):
 	_active = value
 	set_physics_process(value)
 	set_process_input(value)
-	print_debug("set active")
 	if not _active:
 		current_state = null
 
@@ -48,6 +47,7 @@ func _change_state(state_name):
 	if not _active:
 		return
 	current_state.exit()
+	current_state = states_map[state_name]
 	emit_signal("state_changed", current_state)
 	
 	current_state.enter()

@@ -4,7 +4,7 @@ class_name Hurtbox
 
 func _init() -> void:
 	collision_layer = 0
-	collision_layer = pow(2, 8-1)
+	collision_mask = pow(2, 8-1)
 	
 func _ready() -> void:
 	self.connect("area_entered", _on_area_entered)

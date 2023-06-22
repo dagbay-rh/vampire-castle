@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var pause_input : bool = false
 
 @export var speed_vampire : float = 200.0

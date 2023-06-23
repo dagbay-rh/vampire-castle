@@ -2,6 +2,8 @@ extends Area2D
 
 class_name Detectionbox
 
+signal player_detected
+
 func _init() -> void:
 	collision_layer = 0
 	collision_mask = pow(2, 2-1)
@@ -15,13 +17,10 @@ func _on_area_entered(trigger : Trigger) -> void:
 	if trigger == null:
 		pass
 	else:
-		print_debug("player_entered")
-		owner._change_state("move")
-	# go get the chase down the player
+		emit_signal("player_detected", true)
 
 func _on_area_exited(trigger : Trigger) -> void:
 	if trigger == null:
 		pass
 	else:
-		print_debug("player_exited")
-		owner._change_state("idle")
+		emit_signal("player_detected", false)

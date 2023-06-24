@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED : float = 30
 @export var STATE : String = "idle"
-@export var HP : int = 3
+@export var HP : int = 30
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var detectionbox : Detectionbox = $Detectionbox
@@ -21,6 +21,7 @@ var turned : bool
 var attacks : Array
 var attack_to_play : int
 var attack_delayed : bool
+var dead : bool
 
 func _ready():
 	randomize()
@@ -89,11 +90,18 @@ func _should_patrol():
 func _should_attack() -> bool:
 	return player_in_range
 	
-func _is_dead():
-	pass
+func _is_dead() -> bool:
+	return dead
 	
 func _should_idle():
 	pass
+
+func take_damage(damage):
+	HP -= damage
+	if HP <= 0:
+		animation_player.play("die")
+		dead = true
+		
 	
 func _set_chase(value):
 	player_detected = value

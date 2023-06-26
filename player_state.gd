@@ -4,6 +4,7 @@ extends Node
 @onready var player_max_health = 100
 @onready var player_health = 100
 @onready var player_position = Vector2.ZERO
+@onready var player_hurtbox : Hurtbox
 
 signal change_health(value)
 
@@ -16,7 +17,6 @@ func _ready():
 	#add_user_signal("hurt", [{"name": "damage", "type": TYPE_INT}])
 	add_user_signal("increase_special", [])
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player_node:
@@ -25,11 +25,11 @@ func _process(delta):
 
 func set_player_node(res_path):
 	player_node = get_node(res_path)
+	player_hurtbox = player_node.find_child("Hurtbox")
 
 
 func set_iframe(iframe_sent):
 	iframe = iframe_sent
-
 
 
 func take_damage(damage):

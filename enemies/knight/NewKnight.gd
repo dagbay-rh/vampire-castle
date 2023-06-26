@@ -99,10 +99,13 @@ func _should_idle():
 func take_damage(damage):
 	HP -= damage
 	if HP <= 0:
-		animation_player.play("die")
 		dead = true
-		
-	
+
+func _die():
+	animation_player.play("die")
+	set_physics_process(false)
+	$Collision.disabled = true
+
 func _set_chase(value):
 	player_detected = value
 

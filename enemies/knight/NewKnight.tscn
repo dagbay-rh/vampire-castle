@@ -22,6 +22,8 @@ size = Vector2(295, 73)
 height = 36.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_thoco"]
+radius = 18.3576
+height = 50.1154
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25wec"]
 size = Vector2(55, 43)
@@ -195,6 +197,18 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Detectionbox/Detection:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_63d8v"]
@@ -447,6 +461,18 @@ tracks/20/path = NodePath("Node2D/Sprite2D/AttackRange/AttackCollision:disabled"
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Detectionbox/Detection:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -732,9 +758,22 @@ tracks/22/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Detectionbox/Detection:disabled")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fuwyk"]
 resource_name = "die"
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1123,6 +1162,18 @@ tracks/22/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Detectionbox/Detection:disabled")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_wmlei"]
 resource_name = "run_r"
@@ -1379,6 +1430,18 @@ tracks/20/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Detectionbox/Detection:disabled")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qihin"]
 _data = {
@@ -1426,7 +1489,7 @@ collision_layer = 129
 script = ExtResource("2_0d2n3")
 
 [node name="HurtCollision" type="CollisionShape2D" parent="Node2D/Sprite2D/Hurtbox"]
-position = Vector2(-5, 21)
+position = Vector2(8, 21)
 shape = SubResource("CapsuleShape2D_mc0o1")
 disabled = true
 
@@ -1436,8 +1499,8 @@ rotation = 2.29486
 script = ExtResource("3_tq18x")
 
 [node name="HitCollision" type="CollisionShape2D" parent="Node2D/Sprite2D/Hitbox"]
-position = Vector2(74.6325, 42.1306)
-rotation = -2.3144
+position = Vector2(82.1483, 58.1778)
+rotation = -3.42003
 shape = SubResource("CapsuleShape2D_thoco")
 disabled = true
 debug_color = Color(0.937255, 0.176471, 0.458824, 0.419608)
